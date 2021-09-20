@@ -39,8 +39,8 @@ public class Parachute {
     @Column(name = "parachute_estPersonnel", nullable = false)
     private boolean estPersonnel;
 
-    @Column(name = "parachute_estDiposnible", nullable = true)
-    private boolean estDiposnible;
+    @Column(name = "parachute_estDisponible", nullable = true)
+    private boolean estDisponible;
 
     
 
@@ -48,7 +48,7 @@ public class Parachute {
     }
 
     public Parachute(String nomHarnais, String nomVoilePrincipale, String nomVoileSecours, double tailleVoilePrincipale,
-            double tailleVoileSecours, LocalDate datePliageVoileSecours, boolean estPersonnel, boolean estDiposnible) {
+            double tailleVoileSecours, LocalDate datePliageVoileSecours, boolean estPersonnel, boolean estDisponible) {
         this.nomHarnais = nomHarnais;
         this.nomVoilePrincipale = nomVoilePrincipale;
         this.nomVoileSecours = nomVoileSecours;
@@ -56,7 +56,7 @@ public class Parachute {
         this.tailleVoileSecours = tailleVoileSecours;
         this.datePliageVoileSecours = datePliageVoileSecours;
         this.estPersonnel = estPersonnel;
-        this.estDiposnible = estDiposnible;
+        this.estDisponible = estDisponible;
     }
 
     public int getId() {
@@ -123,12 +123,12 @@ public class Parachute {
         this.estPersonnel = estPersonnel;
     }
 
-    public boolean isEstDiposnible() {
-        return estDiposnible;
+    public boolean isEstDisponible() {
+        return estDisponible;
     }
 
-    public void setEstDiposnible(boolean estDiposnible) {
-        this.estDiposnible = estDiposnible;
+    public void setEstDisponible(boolean estDisponible) {
+        this.estDisponible = estDisponible;
     }
 
     
