@@ -8,7 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.projet.api.Views;
+
 @Entity
+@JsonView(Views.Pilote.class)
 @Table(name="pilote")
 public class Pilote {
     @Id
