@@ -2,6 +2,8 @@ package fr.projet.api;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,7 @@ public class VolApiController {
     private IVolDaoJpaRepository daoVol;
 
     @GetMapping
+    @JsonView(Views.Vol.class)
     public List<Vol> findAll() {
         return this.daoVol.findAll();
     }
