@@ -27,4 +27,4 @@ hs_err_pid*
 .settings/
 target/
 node_modules/
-*.properties
+ncdropzone-boot/src/main/resources/application.properties
