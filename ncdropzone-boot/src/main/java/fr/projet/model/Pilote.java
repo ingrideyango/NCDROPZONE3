@@ -1,6 +1,5 @@
 package fr.projet.model;
 
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -65,10 +64,21 @@ public class Pilote {
     public void setNumeroLicence(String numeroLicence) {
         this.numeroLicence = numeroLicence;
     }
-    
-    
 
+    public Avion getAvion() {
+        return avion;
+    }
+
+    public void setAvion(Avion avion) {
+        this.avion = avion;
+    }
+
+    public Vol getVol() {
+        return vol;
+    }
+
+    public void setVol(Vol vol) {
+        this.vol = vol;
+    }
     
-
-
 }
