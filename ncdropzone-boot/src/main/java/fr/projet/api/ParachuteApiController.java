@@ -2,6 +2,8 @@ package fr.projet.api;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,11 +27,13 @@ public class ParachuteApiController {
     private IParachuteDaoJpaRepository daoParachute;
 
     @GetMapping
+    @JsonView(Views.Parachute.class)
     public List<Parachute> findAll(){
         return this.daoParachute.findAll();
     }
 
     @PostMapping
+    @JsonView(Views.Parachute.class)
     public boolean add(@RequestBody Parachute parachute) {
         try {
             this.daoParachute.save(parachute);
@@ -40,6 +44,7 @@ public class ParachuteApiController {
     }
 
     @DeleteMapping("/{id}")
+    @JsonView(Views.Parachute.class)
     public boolean deleteById(@PathVariable int id) {
         try {
             this.daoParachute.deleteById(id);
@@ -50,6 +55,7 @@ public class ParachuteApiController {
     }
 
     @PutMapping("/{id}")
+    @JsonView(Views.Parachute.class)
     public boolean edit(@PathVariable int id, @RequestBody Parachute parachute) {
         try {
             parachute.setId(id);

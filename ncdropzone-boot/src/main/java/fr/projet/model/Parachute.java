@@ -11,8 +11,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.projet.api.Views;
+
 @Entity
 @Table(name = "parachute")
+@JsonView(Views.Parachute.class)
 public class Parachute {
     
     @Id
