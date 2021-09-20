@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,32 +17,36 @@ public class Parachute {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "parachute_id")
+    @Column(name = "PARACHUTE_ID")
     private int id;
 
-    @Column(name = "parachute_nonHarnais", length = 100, nullable = false)
+    @Column(name = "PARACHUTE_NOMHARNAIS", length = 100, nullable = false)
     private String nomHarnais;
 
-    @Column(name = "parachute_nomVoilePrincipale", length = 100, nullable = false)
+    @Column(name = "PARACHUTE_NOMVOILEPRINCIPALE", length = 100, nullable = false)
     private String nomVoilePrincipale;
 
-    @Column(name = "parachute_nomVoileSecours", length = 100, nullable = false)
+    @Column(name = "PARACHUTE_NOMVOILESECOURS", length = 100, nullable = false)
     private String nomVoileSecours;
 
-    @Column(name = "parachute_tailleVoilePrincipale", nullable = false)
+    @Column(name = "PARACHUTE_TAILLEVOILEPRINCIPALE", nullable = false)
     private double tailleVoilePrincipale;
 
-    @Column(name = "parachute_tailleVoileSecours", nullable = false)
+    @Column(name = "PARACHUTE_TAILLEVOILESECOURS", nullable = false)
     private double tailleVoileSecours;
 
-    @Column(name = "parachute_datePliageVoileSecours", nullable = false)
+    @Column(name = "PARACHUTE_DATEPLIAGEVOILESECOURS", nullable = false)
     private LocalDate datePliageVoileSecours;
 
-    @Column(name = "parachute_estPersonnel", nullable = false)
+    @Column(name = "PARACHUTE_ESTPERSONNEL", nullable = false)
     private boolean estPersonnel;
 
-    @Column(name = "parachute_estDisponible", nullable = true)
+    @Column(name = "PARACHUTE_ESTDISPONIBLE", nullable = true)
     private boolean estDisponible;
+    
+    @ManyToOne
+    @JoinColumn(name = "PARACHUTE_PARACHUTISTE")
+    private Parachutiste parachutiste;
 
     
 

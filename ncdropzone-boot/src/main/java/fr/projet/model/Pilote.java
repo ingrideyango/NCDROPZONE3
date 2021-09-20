@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +22,10 @@ public class Pilote {
     @Column(name="pilote_numero_licence",length=50)
     private String numeroLicence;
   
+    @OneToOne(mappedBy = "pilote")
     private Avion avion;
+    
+    @OneToOne(mappedBy = "pilote")
     private Vol vol;
     
     public Pilote(String nom, String prenom, String numeroLicence) {

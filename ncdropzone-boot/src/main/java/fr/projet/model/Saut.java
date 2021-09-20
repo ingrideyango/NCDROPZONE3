@@ -7,7 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table(name = "saut")
@@ -20,7 +25,11 @@ public class Saut {
     @Column(name = "SAUT_HAUTEUR")
     private int hauteur;
 
+    @ManyToOne
+    @JoinColumn(name = "SAUT_VOL")
     private Vol vol;
+    
+    @OneToMany(mappedBy = "saut")
     private List<Parachutiste> parachutistes;
     
     public int getId() {

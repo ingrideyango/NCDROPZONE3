@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +30,8 @@ public class Avion {
     @Column(name = "AVION_NBROTATIONMAX")
     private int nbRotationMax;
 
+    @OneToOne
+    @JoinColumn(name = "AVION_PILOTE")
     private Pilote pilote;
 
     public Avion() {

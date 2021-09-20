@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,8 +23,15 @@ public class Vol {
     @Column(name = "VOL_ETATVOL")
     private String etatVol;
 
+    @OneToOne
+    @JoinColumn(name = "VOL_PILOTE")
     private Pilote pilote;
-    private List<Saut> saut;
+    
+    @OneToMany(mappedBy = "vol")
+    private List<Saut> sauts;
+    
+    @OneToOne
+    @JoinColumn(name = "VOL_RESPONSABLE")
     private Parachutiste responsable;
     
     public int getId() {
