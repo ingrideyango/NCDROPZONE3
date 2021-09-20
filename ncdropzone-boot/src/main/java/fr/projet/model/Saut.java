@@ -39,12 +39,15 @@ public class Saut {
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public int getHauteur() {
         return hauteur;
     }
+    
     public void setHauteur(int hauteur) {
         this.hauteur = hauteur;
     }
