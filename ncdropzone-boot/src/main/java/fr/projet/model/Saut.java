@@ -22,4 +22,20 @@ public class Saut {
 
     private Vol vol;
     private List<Parachutiste> parachutistes;
+    
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getHauteur() {
+        return hauteur;
+    }
+    public void setHauteur(int hauteur) {
+        this.hauteur = hauteur;
+    }
+    
+    public Saut() {
+    }
 }

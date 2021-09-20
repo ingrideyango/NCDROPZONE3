@@ -23,4 +23,20 @@ public class Vol {
     private Pilote pilote;
     private List<Saut> saut;
     private Parachutiste responsable;
+    
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getEtatVol() {
+        return etatVol;
+    }
+    public void setEtatVol(String etatVol) {
+        this.etatVol = etatVol;
+    }
+    
+    public Vol() {
+    }
 }
