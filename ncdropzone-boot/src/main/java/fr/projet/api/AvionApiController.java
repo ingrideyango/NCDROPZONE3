@@ -2,6 +2,8 @@ package fr.projet.api;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,6 +26,7 @@ public class AvionApiController {
     private IAvionDaoJpaRepository daoAvion;
 
     @GetMapping
+    @JsonView(Views.Avion.class)
     public List<Avion> findAll() {
         return this.daoAvion.findAll();
     }
