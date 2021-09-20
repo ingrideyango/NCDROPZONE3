@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import fr.projet.dao.IParachutisteDaoJpaRepository;
 import fr.projet.model.Parachutiste;
 
@@ -25,6 +27,7 @@ public class ParachutisteApiController {
 	private IParachutisteDaoJpaRepository daoParachutiste;
 
 	@GetMapping
+	@JsonView(Views.Parachutiste.class)
 	public List<Parachutiste> findAll(){
 		return this.daoParachutiste.findAll();
 	}

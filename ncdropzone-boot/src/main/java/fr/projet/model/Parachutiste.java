@@ -14,6 +14,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.projet.api.Views;
+
 @Entity
 @Table(name = "parachustiste")
 public class Parachutiste {
@@ -21,18 +25,23 @@ public class Parachutiste {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PARACHUTISTE_ID")
+	@JsonView(Views.Commons.class)
 	private int id;
 	
 	@Column(name = "PARACHUTISTE_NOM", nullable = false)
+	@JsonView(Views.Parachutiste.class)
 	private String nom;
 	
 	@Column(name = "PARACHUTISTE_PRENOM", nullable = false)
+	@JsonView(Views.Parachutiste.class)
 	private String prenom;
 	
 	@Column(name = "PARACHUTISTE_NUMEROLICENCE", nullable = false)
+	@JsonView(Views.Parachutiste.class)
 	private String numeroLicence;
 	
 	@Column(name = "PARACHUTISTE_DATELICENCE", nullable = false)
+	@JsonView(Views.Parachutiste.class)
 	private LocalDate dateLicence;
 	
 	@OneToMany(mappedBy = "parachutiste")
