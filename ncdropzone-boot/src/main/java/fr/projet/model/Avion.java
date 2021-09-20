@@ -28,6 +28,8 @@ public class Avion {
     @Column(name = "AVION_NBROTATIONMAX")
     private int nbRotationMax;
 
+    private Pilote pilote;
+
     public Avion() {
     }
 
