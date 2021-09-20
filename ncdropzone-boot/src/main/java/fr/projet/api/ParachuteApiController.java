@@ -52,6 +52,7 @@ public class ParachuteApiController {
     @PutMapping("/{id}")
     public boolean edit(@PathVariable int id, @RequestBody Parachute parachute) {
         try {
+            parachute.setId(id);
             this.daoParachute.save(parachute);
             return true;
         } catch (Exception e) {
