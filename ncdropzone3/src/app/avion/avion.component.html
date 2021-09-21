@@ -18,16 +18,15 @@
 		<input type="checkbox" value = "true" [(ngModel)]="formAvion.estDisponible" />
 	</div>
 
-
 	<div>
-		<button (click)="ajouterAvion()">Ajouter</button>
-		<button (click)="modifierAvion()">Modifier</button>
+		<button (click)="ajouterAvion()" class="btn btn-success">Ajouter</button>
+		<button (click)="modifierAvion()" class="btn btn-warning">Modifier</button>
 	</div>
 </div>
 
 <hr />
 
-<table class="table table striped">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Nom</th>
@@ -43,9 +42,11 @@
             <td>{{ avion.capacite }}</td>
             <td>{{ avion.estDisponible }}</td>
 
+            <td></td>
+
             <td>
-                <button (click)="editerAvion(avion)">Editer</button> 
-                <button (click)="supprimerAvion(avion)">Supprimer</button> 
+                <button (click)="editerAvion(avion)" class="btn btn-warning">Editer</button> 
+                <button (click)="supprimerAvion(avion)" class="btn btn-danger">Supprimer</button> 
             </td>
         </tr>
     </tbody>
