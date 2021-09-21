@@ -13,10 +13,13 @@ formPilote:any={nom:"",prenom:"",numeroLicence:""};
 this.refresh();
   }
   refresh=() => this.pilotes=this.srvPilote.findAll();
+  formPiloteClean=()=> this.formPilote={nom:"",prenom:"",numeroLicence:""};
+  
   ngOnInit(): void {}
 
   ajouterPilote(){
     this.srvPilote.add(this.formPilote).subscribe(this.refresh);
+    this.formPiloteClean();
   }
   supprimerPilote(pilote:any){
     this.srvPilote.delete(pilote).subscribe(this.refresh);
@@ -26,5 +29,6 @@ this.refresh();
   }
   modifierPilote(){
     this.srvPilote.update(this.formPilote).subscribe(this.refresh);
+    this.formPiloteClean();
   }
 }
