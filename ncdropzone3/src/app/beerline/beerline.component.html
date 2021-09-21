@@ -1,30 +1,37 @@
-<div>
-    <label>Date de licence</label>
-    <input type="checkbox" [(ngModel)]="formParachutiste.isBeerLined">
-</div>
-<div>
-    <button class="btn btn-warning" (click)="editerParachutiste(parachutiste)">Editer</button>
-</div>
+<script defer>document.getElementById("edit").addEventListener("click",()=>{
+    document.getElementById("modif").hidden=false});
+    </script>
 
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>BeerLine</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let p of parachutistes | async">
-            <td>{{ p.nom }}</td>
-            <td>{{ p.prenom }}</td>
-            <td *ngIf="p.isBeerLined==false">NON</td>
-            <td *ngIf="p.isBeerLined==true">OUI</td>
-
-            <td>
-                <button (click)="ajouterRetirerBeerLine()" class="btn btn-warning">Ajouter/Retirer de la beerLine</button>
-            </td>
-        </tr>
-    </tbody>
+<body>
+    <h1>Liste des parachutistes</h1>
+    <hr>
+    <div>
+        
+        <div>
+            <label>BeerLined?</label>
+            <input type="checkbox" [(ngModel)]="formParachutiste.isBeerLined">
+        </div>
+        <div id="modif" >
+            <button class="btn btn-warning" (click)="modifierParachutiste()">Sauvegarder la modificatione</button>
+        </div>
+    </div>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>BeerLine</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of parachutistes | async">
+                <td>{{p.nom}}</td>
+                <td>{{p.prenom}}</td>
+                <td>{{p.isBeerLined}}</td>
+                <td><button id="edit" class="btn btn-warning" (click)="editerParachutiste(p)">Editer</button></td>
+            </tr>
+        </tbody>
     </table>
+    </body>
+    

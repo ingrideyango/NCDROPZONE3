@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BeerlineService } from '../beerline.service';
 import { ParachutisteService } from '../parachutiste.service';
 
 @Component({
@@ -31,11 +30,12 @@ export class BeerlineComponent implements OnInit {
     dateLicence: ""
   };
 
- ajouterRetirerBeerLine(){
-   this.srvParachutiste.update(this.formParachutiste).subscribe(this.refresh);
-   this.formParachutisteClean();
- }
- editerParachutiste(parachutiste: any){
+  modifierParachutiste(){
+    this.srvParachutiste.update(this.formParachutiste).subscribe(this.refresh);
+    this.formParachutisteClean();
+  }
+
+  editerParachutiste(parachutiste: any){
     this.formParachutiste = parachutiste;
   }
 }
