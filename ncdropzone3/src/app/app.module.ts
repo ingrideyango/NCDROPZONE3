@@ -10,6 +10,10 @@ import { ParachutisteComponent } from './parachutiste/parachutiste.component';
 import { SautComponent } from './saut/saut.component';
 import { VolComponent } from './vol/vol.component';
 import { AvionComponent } from './avion/avion.component';
+import { ModuleGestionComponent } from './module-gestion/module-gestion.component';
+import { ModuleAvionnageComponent } from './module-avionnage/module-avionnage.component';
+import { EcranAffichageComponent } from './ecran-affichage/ecran-affichage.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { AvionComponent } from './avion/avion.component';
     ParachutisteComponent,
     SautComponent,
     VolComponent,
-    AvionComponent
+    AvionComponent,
+    ModuleGestionComponent,
+    ModuleAvionnageComponent,
+    EcranAffichageComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
