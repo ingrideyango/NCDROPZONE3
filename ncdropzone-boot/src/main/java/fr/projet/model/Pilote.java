@@ -13,18 +13,21 @@ import com.fasterxml.jackson.annotation.JsonView;
 import fr.projet.api.Views;
 
 @Entity
-@JsonView(Views.Pilote.class)
 @Table(name="pilote")
 public class Pilote {
     @Id
     @Column(name="pilote_id",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(Views.Commons.class)
     private int id;
     @Column(name="pilote_nom",length = 50)
+    @JsonView(Views.Pilote.class)
     private String nom;
     @Column(name ="pilote_prenom",length = 50)
+    @JsonView(Views.Pilote.class)
     private String prenom;
     @Column(name="pilote_numero_licence",length=50)
+    @JsonView(Views.Pilote.class)
     private String numeroLicence;
   
     @OneToOne(mappedBy = "pilote")
