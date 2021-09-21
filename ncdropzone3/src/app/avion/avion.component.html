@@ -1,2 +1,56 @@
-<p>avion works!</p>
+<h3>Liste des avions</h3>
+
+<hr />
+
+<div>
+	<div>
+		<label>Nom : </label>
+		<input type="text" [(ngModel)]="formAvion.nom" />
+	</div>
+
+    <div>
+		<label>Capacité : </label>
+		<input type="text" [(ngModel)]="formAvion.capacite" />
+	</div>
+
+    <div>
+		<label>Disponibilité : </label>
+		<input type="checkbox" value = "true" [(ngModel)]="formAvion.estDisponible" />
+	</div>
+
+
+	<div>
+		<button (click)="ajouterAvion()">Ajouter</button>
+		<button (click)="modifierAvion()">Modifier</button>
+	</div>
+</div>
+
+<hr />
+
+<table class="table table striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Capacité de l'avion</th>
+            <th>Disponibilité de l'avion</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let avion of avions | async">
+            <td>{{ avion.nom }}</td>
+            <td>{{ avion.capacite }}</td>
+            <td>{{ avion.estDisponible }}</td>
+
+            <td>
+                <button (click)="editerAvion(avion)">Editer</button> 
+                <button (click)="supprimerAvion(avion)">Supprimer</button> 
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
+
 <router-outlet></router-outlet>
