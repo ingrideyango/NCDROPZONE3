@@ -6,10 +6,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class BeerlineService {
-  private apiUrl: string = `${ environment.apiUrl }/vol/etatVol`;
   constructor(private http :HttpClient) { }
-
-  findAll(){
-    return this.http.get(this.apiUrl)
-  }
+  
 }

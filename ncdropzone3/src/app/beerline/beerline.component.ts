@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerlineService } from '../beerline.service';
-import { ParachuteService } from '../parachute.service';
-import { VolService } from '../vol.service';
+import { ParachutisteService } from '../parachutiste.service';
 
 @Component({
   selector: 'app-beerline',
@@ -9,20 +8,34 @@ import { VolService } from '../vol.service';
   styleUrls: ['./beerline.component.css']
 })
 export class BeerlineComponent implements OnInit {
-  formVol: any = {
-    etatVol: ""
+  parachutistes: any = this.srvParachutiste.findAll();
+  parachutiste:any={};
+  formParachutiste: any = {
+    nom: "",
+    prenom: "",
+    numeroLicence: "",
+    dateLicence: "",
+    isBeerLined:false
   }
-
-  vols : any = [];
-  constructor(private srvBeerline : BeerlineService) { 
-  this.refresh();
+  constructor( private srvParachutiste : ParachutisteService) { 
+  this.refresh;
 }
 
   ngOnInit(): void { }
 
-  refresh = () => this.vols = this.srvBeerline.findAll();
-  
+  refresh = () => this.parachutistes = this.srvParachutiste.findAll();
+  formParachutisteClean = () => this.formParachutiste = {
+    nom: "",
+    prenom: "",
+    numeroLicence: "",
+    dateLicence: ""
+  };
 
- 
-
+ ajouterRetirerBeerLine(){
+   this.srvParachutiste.update(this.formParachutiste).subscribe(this.refresh);
+   this.formParachutisteClean();
+ }
+ editerParachutiste(parachutiste: any){
+    this.formParachutiste = parachutiste;
+  }
 }

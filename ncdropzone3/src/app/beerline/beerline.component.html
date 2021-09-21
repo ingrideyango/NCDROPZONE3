@@ -1,19 +1,30 @@
+<div>
+    <label>Date de licence</label>
+    <input type="checkbox" [(ngModel)]="formParachutiste.isBeerLined">
+</div>
+<div>
+    <button class="btn btn-warning" (click)="editerParachutiste(parachutiste)">Editer</button>
+</div>
 
-<table>
-<thead>
-    <tr>
-        <th>Numéro du vol</th>
-        <th>Etat du vol</th>
-        <th></th>
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let vol of vols | async">
-        <td>{{ vol.id }}</td>
-        <td>{{ vol.etatVol }}</td>
-        <td>
-            
-        </td>
-    </tr>
-</tbody>
-</table>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>BeerLine</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of parachutistes | async">
+            <td>{{ p.nom }}</td>
+            <td>{{ p.prenom }}</td>
+            <td *ngIf="p.isBeerLined==false">NON</td>
+            <td *ngIf="p.isBeerLined==true">OUI</td>
+
+            <td>
+                <button (click)="ajouterRetirerBeerLine()" class="btn btn-warning">Ajouter/Retirer de la beerLine</button>
+            </td>
+        </tr>
+    </tbody>
+    </table>

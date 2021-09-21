@@ -39,6 +39,10 @@ public class Parachutiste {
 	@Column(name = "PARACHUTISTE_NUMEROLICENCE", nullable = false)
 	@JsonView(Views.Parachutiste.class)
 	private String numeroLicence;
+
+	@Column(name="PARACHUTISTE_BEERLINE",nullable = false)
+	@JsonView(Views.Parachutiste.class)
+	private boolean isBeerLined;
 	
 	@Column(name = "PARACHUTISTE_DATELICENCE", nullable = false)
 	@JsonView(Views.Parachutiste.class)
@@ -92,6 +96,38 @@ public class Parachutiste {
 
 	public void setDateLicence(LocalDate dateLicence) {
 		this.dateLicence = dateLicence;
+	}
+
+	public boolean isBeerLined() {
+		return isBeerLined;
+	}
+
+	public void setBeerLined(boolean isBeerLined) {
+		this.isBeerLined = isBeerLined;
+	}
+
+	public List<Parachute> getParachutes() {
+		return parachutes;
+	}
+
+	public void setParachutes(List<Parachute> parachutes) {
+		this.parachutes = parachutes;
+	}
+
+	public Saut getSaut() {
+		return saut;
+	}
+
+	public void setSaut(Saut saut) {
+		this.saut = saut;
+	}
+
+	public Vol getVol() {
+		return vol;
+	}
+
+	public void setVol(Vol vol) {
+		this.vol = vol;
 	}
 
 	public Parachutiste() {
