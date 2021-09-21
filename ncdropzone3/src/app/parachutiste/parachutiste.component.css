@@ -1,8 +1,14 @@
 body{
-       
+    background-image: url("/assets/img/FondPageParachutiste.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+label{
+    position: relative;
+    padding-left: 35%;
 }
 
 input{
     position: relative;
-    padding-left: 50%;
 }
+
