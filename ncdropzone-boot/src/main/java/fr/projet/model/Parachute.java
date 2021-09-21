@@ -17,36 +17,44 @@ import fr.projet.api.Views;
 
 @Entity
 @Table(name = "parachute")
-@JsonView(Views.Parachute.class)
 public class Parachute {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PARACHUTE_ID")
+    @JsonView(Views.Commons.class)
     private int id;
 
     @Column(name = "PARACHUTE_NOMHARNAIS", length = 100, nullable = false)
+    @JsonView(Views.Parachute.class)
     private String nomHarnais;
 
     @Column(name = "PARACHUTE_NOMVOILEPRINCIPALE", length = 100, nullable = false)
+    @JsonView(Views.Parachute.class)
     private String nomVoilePrincipale;
 
     @Column(name = "PARACHUTE_NOMVOILESECOURS", length = 100, nullable = false)
+    @JsonView(Views.Parachute.class)
     private String nomVoileSecours;
 
     @Column(name = "PARACHUTE_TAILLEVOILEPRINCIPALE", nullable = false)
+    @JsonView(Views.Parachute.class)
     private double tailleVoilePrincipale;
 
     @Column(name = "PARACHUTE_TAILLEVOILESECOURS", nullable = false)
+    @JsonView(Views.Parachute.class)
     private double tailleVoileSecours;
 
     @Column(name = "PARACHUTE_DATEPLIAGEVOILESECOURS", nullable = false)
+    @JsonView(Views.Parachute.class)
     private LocalDate datePliageVoileSecours;
 
     @Column(name = "PARACHUTE_ESTPERSONNEL", nullable = false)
+    @JsonView(Views.Parachute.class)
     private boolean estPersonnel;
 
     @Column(name = "PARACHUTE_ESTDISPONIBLE", nullable = true)
+    @JsonView(Views.Parachute.class)
     private boolean estDisponible;
     
     @ManyToOne
