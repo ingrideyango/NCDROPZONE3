@@ -16,6 +16,7 @@ import { ModuleGestionComponent } from './module-gestion/module-gestion.componen
 import { ModuleAvionnageComponent } from './module-avionnage/module-avionnage.component';
 import { EcranAffichageComponent } from './ecran-affichage/ecran-affichage.component';
 import { HomeComponent } from './home/home.component';
+import { BeerlineComponent } from './beerline/beerline.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HomeComponent } from './home/home.component';
     ModuleGestionComponent,
     ModuleAvionnageComponent,
     EcranAffichageComponent,
-    HomeComponent
+    HomeComponent,
+    BeerlineComponent
   ],
   imports: [
     BrowserModule,

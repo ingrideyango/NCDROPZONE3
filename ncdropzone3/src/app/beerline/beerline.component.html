@@ -1,0 +1,19 @@
+
+<table>
+<thead>
+    <tr>
+        <th>Numéro du vol</th>
+        <th>Etat du vol</th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let vol of vols | async">
+        <td>{{ vol.id }}</td>
+        <td>{{ vol.etatVol }}</td>
+        <td>
+            
+        </td>
+    </tr>
+</tbody>
+</table>

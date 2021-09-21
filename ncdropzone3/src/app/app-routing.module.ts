@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AvionComponent } from './avion/avion.component';
+import { BeerlineComponent } from './beerline/beerline.component';
 import { EcranAffichageComponent } from './ecran-affichage/ecran-affichage.component';
 import { HomeComponent } from './home/home.component';
 import { ModuleAvionnageComponent } from './module-avionnage/module-avionnage.component';
@@ -22,6 +23,8 @@ const routes: Routes = [
   {path:'moduleGestion',component: ModuleGestionComponent},
   {path:'moduleAvionnage',component: ModuleAvionnageComponent},
   {path:'ecranAffichage',component: EcranAffichageComponent},
+  {path:'beerline',component: BeerlineComponent},
+
 ];
 
 @NgModule({

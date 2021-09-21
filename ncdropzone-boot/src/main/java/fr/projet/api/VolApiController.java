@@ -24,6 +24,12 @@ public class VolApiController {
     @Autowired
     private IVolDaoJpaRepository daoVol;
 
+    @GetMapping("/etatVol")
+    @JsonView(Views.Vol.class)
+    public List<Vol> findAllVolByEtatVol(){
+        return this.daoVol.findAllByEtatVol("Termine");
+    }
+
     @GetMapping
     @JsonView(Views.Vol.class)
     public List<Vol> findAll() {
