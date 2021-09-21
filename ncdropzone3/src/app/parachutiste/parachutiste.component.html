@@ -1,1 +1,51 @@
-<p>parachutiste works!</p>
+<body>
+    
+
+<h1>Liste des parachutistes</h1>
+<hr>
+<div>
+    <div>
+        <label>Nom</label>
+        <input type="text" [(ngModel)]="formParachutiste.nom">
+    </div>
+    <div>
+        <label>Prenom</label>
+        <input type="text" [(ngModel)]="formParachutiste.prenom">
+    </div>
+    <div>
+        <label>Numero de licence</label>
+        <input type="text" [(ngModel)]="formParachutiste.numeroLicence">
+    </div>
+    <div>
+        <label>Date de licence</label>
+        <input type="text" [(ngModel)]="formParachutiste.dateLicence">
+    </div>
+    <div>
+        <button class="btn btn-success" (click)="ajouterParachutiste()">Ajouter</button>
+        <button class="btn btn-warning" (click)="modifierParachutiste()">Modifier</button>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Numero de licence</th>
+            <th>Date de licence</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of parachutistes | async">
+            <td>{{p.nom}}</td>
+            <td>{{p.prenom}}</td>
+            <td>{{p.numeroLicence}}</td>
+            <td>{{p.dateLicence}}</td>
+            <td><button class="btn btn-warning" (click)="editerParachutiste(p)">Editer</button></td>
+            <td><button class="btn btn-danger" (click)="supprimerParachutiste(p)">Supprimer</button></td>
+        </tr>
+    </tbody>
+</table>
+</body>
