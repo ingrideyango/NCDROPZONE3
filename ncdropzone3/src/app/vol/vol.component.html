@@ -1,1 +1,37 @@
-<p>vol works!</p>
+<h1>Liste des vols</h1>
+
+<div>
+    <div>
+        <label>Numéro du vol : </label>
+        <input type="number" name="id" [(ngModel)]="formVol.id" />
+    </div>
+    <div>
+        <label>Etat du vol : </label>
+        <input type="text" name="etatVol" [(ngModel)]="formVol.etatVol" />
+    </div>
+    <div>
+        <button (click)="ajouterVol()">Ajouter</button>
+        <button (click)="modifierVol()">Modifier</button>
+    </div>
+</div>
+
+<hr />
+
+<table>
+    <thead>
+        <tr>
+            <th>Numéro du vol</th>
+            <th>Etat du vol</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vol of vols | async">
+            <td>{{ vol.id }}</td>
+            <td>{{ vol.etatVol }}</td>
+            <td>
+                <button (click)="editerVol(vol)">EDITER</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

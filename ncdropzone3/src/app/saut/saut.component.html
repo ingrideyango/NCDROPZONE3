@@ -1,1 +1,32 @@
-<p>saut works!</p>
+<h1>Liste des sauts</h1>
+
+<div>
+    <div>
+        <label>Hauteur : </label>
+        <input type="number" name="hauteur" [(ngModel)]="formSaut.hauteur" />
+    </div>
+    <div>
+        <button (click)="ajouterSaut()">Ajouter</button>
+        <button (click)="modifierSaut()">Modifier</button>
+    </div>
+</div>
+
+<hr />
+
+<table>
+    <thead>
+        <tr>
+            <th>Hauteur</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let saut of sauts | async">
+            <td>{{ saut.hauteur }}</td>
+            <td>
+                <button (click)="editerSaut(saut)">EDITER</button>
+                <button (click)="supprimerSaut(saut)">SUPPRIMER</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

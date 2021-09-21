@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SautService } from '../saut.service';
 
 @Component({
   selector: 'app-saut',
@@ -7,9 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SautComponent implements OnInit {
 
-  constructor() { }
+  formSaut: any = {
+    hauteur: 0
+  };
+
+  sauts: any = [];
+
+  constructor(private srvSaut: SautService) {
+    this.refresh();
+  }
 
   ngOnInit(): void {
+  }
+
+  refresh = () => this.sauts = this.srvSaut.findAll();
+
+  ajouterSaut() {
+    this.srvSaut.add(this.formSaut).subscribe(this.refresh);
+  }
+
+  supprimerSaut(saut: any) {
+    this.srvSaut.delete(saut).subscribe(this.refresh);
+  }
+
+  editerSaut(saut: any) {
+    this.formSaut = saut;
+  }
+
+  modifierSaut() {
+    this.srvSaut.update(this.formSaut).subscribe(this.refresh);
   }
 
 }

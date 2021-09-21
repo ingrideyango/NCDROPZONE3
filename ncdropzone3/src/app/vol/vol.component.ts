@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VolService } from '../vol.service';
 
 @Component({
   selector: 'app-vol',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VolComponent implements OnInit {
 
-  constructor() { }
+  formVol: any = {
+    etatVol: ""
+  }
+
+  vols : any = [];
+
+  constructor(private srvVol: VolService) {
+    this.refresh();
+  }
 
   ngOnInit(): void {
+  }
+
+  refresh = () => this.vols = this.srvVol.findAll();
+
+  ajouterVol() {
+    this.srvVol.add(this.formVol).subscribe(this.refresh);
+  }
+
+  editerVol(vol: any) {
+    this.formVol = vol;
+  }
+
+  modifierVol() {
+    this.srvVol.update(this.formVol).subscribe(this.refresh);
   }
 
 }
