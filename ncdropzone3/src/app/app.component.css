@@ -1,0 +1,27 @@
+nav {
+    background-color: black;
+    height: 100px;
+}
+
+img {
+    width: 150px;
+    margin-right: 10px;
+}
+
+nav ul{
+    margin:auto;
+}
+
+nav a{
+    color: white;
+    font-weight: bold;
+    margin: 10px;
+    transition: all 0.25s ease-in;
+}
+
+nav a:hover{
+    color: yellow;
+    padding: 5px 20px;
+	animation: shakeX 1s;
+}
+
