@@ -22,9 +22,13 @@ export class VolComponent implements OnInit {
   }
 
   refresh = () => this.vols = this.srvVol.findAll();
+  formVolClean = () => this.formVol = {
+    etatVol: ""
+  }
 
   ajouterVol() {
     this.srvVol.add(this.formVol).subscribe(this.refresh);
+    this.formVolClean();
   }
 
   editerVol(vol: any) {
@@ -33,6 +37,7 @@ export class VolComponent implements OnInit {
 
   modifierVol() {
     this.srvVol.update(this.formVol).subscribe(this.refresh);
+    this.formVolClean();
   }
 
 }

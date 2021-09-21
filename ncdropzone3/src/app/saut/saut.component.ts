@@ -22,9 +22,13 @@ export class SautComponent implements OnInit {
   }
 
   refresh = () => this.sauts = this.srvSaut.findAll();
+  formSautClean = () => this.formSaut = {
+    hauteur: 0
+  };
 
   ajouterSaut() {
     this.srvSaut.add(this.formSaut).subscribe(this.refresh);
+    this.formSautClean();
   }
 
   supprimerSaut(saut: any) {
@@ -37,6 +41,7 @@ export class SautComponent implements OnInit {
 
   modifierSaut() {
     this.srvSaut.update(this.formSaut).subscribe(this.refresh);
+    this.formSautClean();
   }
 
 }
