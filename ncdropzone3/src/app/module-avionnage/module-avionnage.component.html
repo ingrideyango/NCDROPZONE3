@@ -1,9 +1,39 @@
-<h3>Module d'avionnage!</h3>
+<h3>Enregistrement des parachutistes</h3>
+<hr>
 
-<nav>
-    <ul>
-        <li>
-            <a [routerLink]="[ '/avion']">Avion</a>
-        </li>
-    </ul>
-</nav>
+    <!-- <div class="col-auto">
+      <label for="inputPassword2" class="visually-hidden">Nom</label>
+      <input type="text" class="form-control" id="inputNom" placeholder="Entrez votre nom" [(ngModel)]="formParachutiste.nom">
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-primary" (click)="afficherParachutiste(parachutiste)">Rechercher</button>
+    </div>
+
+  <hr> -->
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Numero de licence</th>
+            <th>Numéro du parachute</th>
+            <th>Saut en groupe</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of parachutistes | async">
+            <td>{{p.nom}}</td>
+            <td>{{p.prenom}}</td>
+            <td>{{p.numeroLicence}}</td>
+            <td></td>
+            <td>Saut en groupe</td>
+        </tr>    
+        
+        <tr>
+            <td><button class="btn btn-success" id="valider">Valider le saut</button></td>
+        </tr>
+    </tbody>
+</table>
+
