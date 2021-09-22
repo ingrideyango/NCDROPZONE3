@@ -13,7 +13,8 @@ export class ParachutisteComponent implements OnInit {
     nom: "",
     prenom: "",
     numeroLicence: "",
-    dateLicence: ""
+    dateLicence: "",
+    niveau:"",
   }
   parachutiste: any = {};
 
@@ -27,7 +28,8 @@ export class ParachutisteComponent implements OnInit {
     nom: "",
     prenom: "",
     numeroLicence: "",
-    dateLicence: ""
+    dateLicence: "",
+    niveau:""
   };
 
   ajouterParachutiste(){
