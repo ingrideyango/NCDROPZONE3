@@ -2,55 +2,40 @@
 
 <body>
     <div class="container-fluid">
-        <div>
-            <div>
-                <label>Nom du harnais</label>
-                <input type="text" [(ngModel)]="formParachute.nomHarnais">
-            </div>
-            <div>
-                <label>Type de securite</label>
-                <select [(ngModel)]="formParachute.typeSecurite">
-                    <option>CYPRESS</option>
-                    <option>VIGIL</option>
-                </select>
-            </div>
-            <div>
-                <label>Nom de la voile principale</label>
-                <input type="text" [(ngModel)]="formParachute.nomVoilePrincipale">
-            </div>
-            <div>
-                <label>Nom de la voile de secours</label>
-                <input type="text" [(ngModel)]="formParachute.nomVoileSecours">
-            </div>
-            <div>
-                <label>Taille de la voile principale</label>
-                <input type="text" [(ngModel)]="formParachute.tailleVoilePrincipale">
-            </div>
-            <div>
-                <label>Taille de la voile de secours</label>
-                <input type="text" [(ngModel)]="formParachute.tailleVoileSecours">
-            </div>
-            <div>
-                <label>Date de pliage de la voile de secours</label>
-                <input type="date" [(ngModel)]="formParachute.datePliageVoileSecours">
-            </div>
-            <div>
-                <label>Parachute personnel</label>
-                <input type="checkbox" value="false" [(ngModel)]="formParachute.estPersonnel">
-                
-            </div>
-            <div>
-                <label>Parachute disponible</label>
-                <input type="checkbox" value="true" [(ngModel)]="formParachute.estDisponible">
-                
-            </div>
-            <div>
-                <button class="btn mr-2" (click)="ajouterParachute()">Ajouter</button>
-                <button class="btn" (click)="modifierParachute()">Modifier</button>
-            </div>
-            
+        <div id="form">
+            <label>Nom du harnais</label>
+            <input type="text" [(ngModel)]="formParachute.nomHarnais"><br>
+            <label>Type de securite</label>
+            <select [(ngModel)]="formParachute.typeSecurite">
+                <option>CYPRESS</option>
+                <option>VIGIL</option>
+            </select><br>
+            <label>Nom de la voile principale</label>
+            <input type="text" [(ngModel)]="formParachute.nomVoilePrincipale"><br>
+            <label>Nom de la voile de secours</label>
+            <input type="text" [(ngModel)]="formParachute.nomVoileSecours"><br>
+            <label>Taille de la voile principale</label>
+            <input type="text" [(ngModel)]="formParachute.tailleVoilePrincipale"><br>
+            <label>Taille de la voile de secours</label>
+            <input type="text" [(ngModel)]="formParachute.tailleVoileSecours"><br>
+            <label>Date de pliage de la voile de secours</label>
+            <input type="date" [(ngModel)]="formParachute.datePliageVoileSecours"><br>
+        </div>
+        <div id="checkbox">
+            <label>Parachute personnel</label>
+            <input type="checkbox" value="false" [(ngModel)]="formParachute.estPersonnel"><br>
+            <label>Parachute disponible</label>
+            <input type="checkbox" value="true" [(ngModel)]="formParachute.estDisponible">
+        </div>
+        
+        <div id="btn">
+            <button class="btn mr-2" (click)="ajouterParachute()">Ajouter</button>
+            <button class="btn" (click)="modifierParachute()">Modifier</button>
         </div>
     </div>
+
+    <hr>
+
     <div class="container-fluid">
         <h3>Liste des parachutes</h3>
 

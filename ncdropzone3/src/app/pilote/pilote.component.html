@@ -1,34 +1,44 @@
-<label for="nom">Nom du Pilote</label>
-<input type="text" [(ngModel)]="formPilote.nom">
-<label for="prenom">Prenom du Pilote</label>
-<input type="text" [(ngModel)]="formPilote.prenom">
-<label for="prenom">Numero de licence du Pilote</label>
-<input type="text" [(ngModel)]="formPilote.numeroLicence">
-<div>
-<button (click)="ajouterPilote()">AJOUTER</button>
-<button (click)="modifierPilote()">MODIFIER</button>
+<nav-gestion></nav-gestion>
 
-</div>
-<hr>
-<h4>Liste des pilotes</h4>
-<table class="table table-striped">
-<thead>
-    <tr>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Numero de Licence</th>
-        <th></th>
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let pilote of pilotes | async">
-        <td>{{pilote.nom}}</td>
-        <td>{{pilote.prenom}}</td>
-        <td>{{pilote.numeroLicence}}</td>
-        <td>
-            <button (click)="supprimerPilote(pilote)">SUPPRIMER</button>
-            <button (click)="editerPilote(pilote)">EDITER</button>
-        </td>
-    </tr>
-</tbody>
-</table>
+<body>
+    <div class="container-fluid">
+        <label for="nom">Nom du Pilote</label>
+        <input type="text" [(ngModel)]="formPilote.nom"><br>
+        <label for="prenom">Prenom du Pilote</label>
+        <input type="text" [(ngModel)]="formPilote.prenom"><br>
+        <label for="prenom">Numero de licence du Pilote</label>
+        <input type="text" [(ngModel)]="formPilote.numeroLicence">
+        <div id="btn">
+            <button class="btn mr-2" (click)="ajouterPilote()">AJOUTER</button>
+            <button class="btn" (click)="modifierPilote()">MODIFIER</button>
+        </div>
+    </div>
+    
+    <hr>
+
+    <div class="container-fluid">
+        <h3>Liste des pilotes</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Numero de Licence</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pilote of pilotes | async">
+                    <td>{{pilote.nom}}</td>
+                    <td>{{pilote.prenom}}</td>
+                    <td>{{pilote.numeroLicence}}</td>
+                    <td>
+                        <button class="btn mr-2" (click)="supprimerPilote(pilote)">SUPPRIMER</button>
+                        <button class="btn" (click)="editerPilote(pilote)">EDITER</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
