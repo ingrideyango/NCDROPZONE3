@@ -7,7 +7,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Nom de l'avion</th>
+ 
             <th>Numéro de vol</th>
             <th>Etat du vol</th>
             <th></th>
@@ -16,7 +16,7 @@
 
     <tbody >
         <tr *ngFor = "let vol of vols | async" >
-            <td>{{ avion.nom }}</td>
+
             <td>{{ vol.id }}</td>
             <td>{{ vol.etatVol }}</td>
         </tr>
