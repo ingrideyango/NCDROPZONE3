@@ -43,6 +43,9 @@ public class Avion {
     @JoinColumn(name = "AVION_PILOTE")
     private Pilote pilote;
 
+    @OneToOne(mappedBy = "avion")
+    private Vol vol;
+
     public Avion() {
     }
 

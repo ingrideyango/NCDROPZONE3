@@ -30,6 +30,10 @@ public class Vol {
     private String etatVol;
 
     @OneToOne
+    @JoinColumn(name = "VOL_AVION")
+    private Avion avion;
+
+    @OneToOne
     @JoinColumn(name = "VOL_PILOTE")
     private Pilote pilote;
     
