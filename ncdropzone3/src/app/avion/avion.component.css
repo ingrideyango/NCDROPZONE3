@@ -1,3 +1,8 @@
+body{
+    background-image: url("/assets/img/FondPageParachutiste.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 body {
     margin: 0;
     padding-left: 250px;
@@ -6,6 +11,10 @@ body {
 
 h3{
     margin-top: 10px;
+}
+
+div[id="table"]{
+    background-color: white;
 }
 
 button{

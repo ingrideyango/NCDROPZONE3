@@ -3,12 +3,57 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
-label{
-    position: relative;
-    padding-left: 35%;
+body {
+    margin: 0;
+    padding-left: 250px;
+    padding-top: 10px;
+}
+h3{
+    margin-top: 10px;
 }
 
-input{
-    position: relative;
+div[id="table"]{
+    background-color: white;
+}
+
+div[id="form"] label{
+    display: block;
+    width: 300px;
+    float: left;
+    
+}
+
+input[type="text"]{
+    width: 300px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+input[type="date"]{
+    width: 300px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+button{
+    background-color: yellow;
+    border-color: black;
+    border-width: 3px;
+    width: 120px;
+    font-weight: bold;
+}
+
+select{
+    width: 300px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+button:hover {
+    background-color: gray;
+    color: yellow;
 }
 
