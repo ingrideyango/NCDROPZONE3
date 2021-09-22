@@ -28,6 +28,8 @@ public class Parachute {
     @Column(name = "PARACHUTE_NOMHARNAIS", length = 100, nullable = false)
     @JsonView(Views.Parachute.class)
     private String nomHarnais;
+    @Column(name="PARACHUTE_TYPESECURITE")
+    private String typeSecurite;
 
     @Column(name = "PARACHUTE_NOMVOILEPRINCIPALE", length = 100, nullable = false)
     @JsonView(Views.Parachute.class)
@@ -65,10 +67,11 @@ public class Parachute {
 
     public Parachute() {
     }
-
-    public Parachute(String nomHarnais, String nomVoilePrincipale, String nomVoileSecours, double tailleVoilePrincipale,
-            double tailleVoileSecours, LocalDate datePliageVoileSecours, boolean estPersonnel, boolean estDisponible) {
+    public Parachute(String nomHarnais, String typeSecurite, String nomVoilePrincipale, String nomVoileSecours,
+            double tailleVoilePrincipale, double tailleVoileSecours, LocalDate datePliageVoileSecours,
+            boolean estPersonnel, boolean estDisponible) {
         this.nomHarnais = nomHarnais;
+        this.typeSecurite = typeSecurite;
         this.nomVoilePrincipale = nomVoilePrincipale;
         this.nomVoileSecours = nomVoileSecours;
         this.tailleVoilePrincipale = tailleVoilePrincipale;
@@ -77,6 +80,8 @@ public class Parachute {
         this.estPersonnel = estPersonnel;
         this.estDisponible = estDisponible;
     }
+
+
 
     public int getId() {
         return id;
@@ -148,6 +153,22 @@ public class Parachute {
 
     public void setEstDisponible(boolean estDisponible) {
         this.estDisponible = estDisponible;
+    }
+
+    public String getTypeSecurite() {
+        return typeSecurite;
+    }
+
+    public void setTypeSecurite(String typeSecurite) {
+        this.typeSecurite = typeSecurite;
+    }
+
+    public Parachutiste getParachutiste() {
+        return parachutiste;
+    }
+
+    public void setParachutiste(Parachutiste parachutiste) {
+        this.parachutiste = parachutiste;
     }
 
     
