@@ -19,6 +19,13 @@
         <input type="text" [(ngModel)]="formParachutiste.dateLicence">
     </div>
     <div>
+        <label>Niveau du parachutiste</label>
+        <select [(ngModel)]="formParachutiste.niveau">
+            <option>Pratiquant</option>
+            <option>Instructeur</option>
+        </select>
+    </div>
+    <div>
         <button class="btn btn-success" (click)="ajouterParachutiste()">Ajouter</button>
         <button class="btn btn-warning" (click)="modifierParachutiste()">Modifier</button>
     </div>
@@ -31,6 +38,7 @@
             <th>Prenom</th>
             <th>Numero de licence</th>
             <th>Date de licence</th>
+            <th>Niveau du parachutiste</th>
             <th></th>
             <th></th>
         </tr>
@@ -41,6 +49,7 @@
             <td>{{p.prenom}}</td>
             <td>{{p.numeroLicence}}</td>
             <td>{{p.dateLicence}}</td>
+            <td>{{p.niveau}}</td>
             <td><button class="btn btn-warning" (click)="editerParachutiste(p)">Editer</button></td>
             <td><button class="btn btn-danger" (click)="supprimerParachutiste(p)">Supprimer</button></td>
         </tr>
