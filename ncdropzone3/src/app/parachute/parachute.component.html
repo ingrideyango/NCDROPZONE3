@@ -51,8 +51,8 @@
                     <th>Taille de la voile principale</th>
                     <th>Taille de la voile de secours</th>
                     <th>Date de pliage de la voile de secours</th>
-                    <th>Parachute personnel</th>
-                    <th>Parachute disponible</th>
+                    <th>Propriétaire</th>
+                    <th>Disponibilité</th>
                     <th></th>
                 </tr>
             </thead>
@@ -65,8 +65,10 @@
                     <td>{{ parachute.tailleVoilePrincipale }}</td>
                     <td>{{ parachute.tailleVoileSecours }}</td>
                     <td>{{ parachute.datePliageVoileSecours }}</td>
-                    <td>{{ parachute.estPersonnel }}</td>
-                    <td>{{ parachute.estDisponible }}</td>
+                    <td *ngIf="parachute.estPersonnel==true">Personnel</td>
+                    <td *ngIf="parachute.estPersonnel==false">NCDROPZONE</td>
+                    <td *ngIf="parachute.estDisponible==true">Disponible</td>
+                    <td *ngIf="parachute.estDisponible==false">Indisponible</td>
                     <td>
                         <button class="btn mb-2" (click)="editerParachute(parachute)">Editer</button>
                         <button class="btn" (click)="supprimerParachute(parachute)">Supprimer</button>
