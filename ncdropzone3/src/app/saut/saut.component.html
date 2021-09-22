@@ -1,32 +1,37 @@
-<h1>Liste des sauts</h1>
+<nav-gestion></nav-gestion>
 
-<div>
+<body>
+<div class="container-fluid">
     <div>
         <label>Hauteur : </label>
         <input type="number" name="hauteur" [(ngModel)]="formSaut.hauteur" />
     </div>
-    <div>
-        <button (click)="ajouterSaut()">Ajouter</button>
-        <button (click)="modifierSaut()">Modifier</button>
+    <div id="btn">
+        <button class="btn mr-2" (click)="ajouterSaut()">Ajouter</button>
+        <button class="btn" (click)="modifierSaut()">Modifier</button>
     </div>
 </div>
 
-<hr />
+<div class="container-fluid" id="table">
+    <hr />
+    <h3>Liste des sauts</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Hauteur</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let saut of sauts | async">
+                <td>{{ saut.hauteur }}</td>
+                <td>
+                    <button class="btn mr-2" (click)="editerSaut(saut)">EDITER</button>
+                    <button class="btn" (click)="supprimerSaut(saut)">SUPPRIMER</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-<table>
-    <thead>
-        <tr>
-            <th>Hauteur</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let saut of sauts | async">
-            <td>{{ saut.hauteur }}</td>
-            <td>
-                <button (click)="editerSaut(saut)">EDITER</button>
-                <button (click)="supprimerSaut(saut)">SUPPRIMER</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+</body>
