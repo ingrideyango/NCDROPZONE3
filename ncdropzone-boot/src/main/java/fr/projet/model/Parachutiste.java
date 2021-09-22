@@ -47,6 +47,14 @@ public class Parachutiste {
 	@Column(name = "PARACHUTISTE_DATELICENCE", nullable = false)
 	@JsonView(Views.Parachutiste.class)
 	private LocalDate dateLicence;
+
+	@Column(name="PARACHUTISTE_NIVEAU")
+	@JsonView(Views.Parachutiste.class)
+	private String niveau;
+
+	@Column(name="PARACHUTISTE_STATUT")
+	@JsonView(Views.Parachutiste.class)
+	private String statut;
 	
 	@OneToMany(mappedBy = "parachutiste")
 	private List<Parachute> parachutes; 
