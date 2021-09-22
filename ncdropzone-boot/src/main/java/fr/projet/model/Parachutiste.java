@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import fr.projet.api.Views;
 
 @Entity
-@Table(name = "parachustiste")
+@Table(name = "parachutiste")
 public class Parachutiste {
 	
 	@Id
