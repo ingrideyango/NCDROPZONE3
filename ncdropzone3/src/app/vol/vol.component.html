@@ -2,21 +2,23 @@
 
 <div>
     <div>
-        <label>Numéro du vol :</label><br />
-        <input type="number" name="id" [(ngModel)]="formVol.id" />
+        <label>Nom de l'avion :</label><br />
+        <select>
+            <option *ngFor="let avion of avions | async" [(ngModel)]="formVol.avion">{{ avion.nom }}</option>
+        </select>
     </div>
 
     <div>
         <label>Nom du pilote :</label><br />
-        <select [(ngModel)]="formVol.pilote">
-            <option *ngFor="let pilote of pilotes | async" [value]="pilote.id">{{ pilote.nom }}</option>
+        <select>
+            <option *ngFor="let pilote of pilotes | async" [(ngModel)]="formVol.pilote">{{ pilote.nom }}</option>
         </select>
     </div>
 
     <div>
         <label>Nom du parachutiste responsable :</label><br />
-        <select [(ngModel)]="formVol.responsable">
-            <option *ngFor="let parachutiste of parachutistes | async" [value]="parachutiste.id">{{ parachutiste.nom }}</option>
+        <select>
+            <option *ngFor="let parachutiste of parachutistes | async" [(ngModel)]="formVol.responsable">{{ parachutiste.nom }}</option>
         </select>
     </div>
 
@@ -54,6 +56,7 @@
         <tr>
             <th>Numéro du vol</th>
             <th>Etat du vol</th>
+            <th>Nom de l'avion</th>
             <th>Nom du pilote</th>
             <th>Nom du responsable</th>
             <th></th>
@@ -62,12 +65,21 @@
     <tbody>
         <tr *ngFor="let vol of vols | async">
             <td>{{ vol.id }}</td>
+
             <td>{{ vol.etatVol }}</td>
+
+            <td><div *ngFor="let avion of avions | async">
+                <div *ngIf="vol.avion.id == avion.id">
+                    {{ avion.nom }}
+                </div>
+            </div></td>
+
             <td><div *ngFor="let pilote of pilotes | async">
                 <div *ngIf="vol.pilote.id == pilote.id">
                     {{ pilote.nom }}
                 </div>
             </div></td>
+
             <td><div *ngFor="let parachutiste of parachutistes | async">
                 <div *ngIf="vol.responsable.id == parachutiste.id">
                     {{ parachutiste.nom }}

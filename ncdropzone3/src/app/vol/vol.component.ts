@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AvionService } from '../avion.service';
 import { ParachutisteService } from '../parachutiste.service';
 import { PiloteService } from '../pilote.service';
 import { VolService } from '../vol.service';
@@ -13,6 +14,9 @@ export class VolComponent implements OnInit {
 
   formVol: any = {
     etatVol: "",
+    avion: {
+      nom: ""
+    },
     pilote: {
       nom: ""
     },
@@ -22,10 +26,11 @@ export class VolComponent implements OnInit {
   }
 
   vols : any = [];
+  avions : any = [];
   pilotes : any = [];
   parachutistes : any = [];
 
-  constructor(private srvVol: VolService, private srvPilote: PiloteService, private srvParachutiste: ParachutisteService) {
+  constructor(private srvVol: VolService, private srvPilote: PiloteService, private srvParachutiste: ParachutisteService, private srvAvion: AvionService) {
     this.refresh();
   }
 
@@ -34,6 +39,7 @@ export class VolComponent implements OnInit {
 
   refresh = () => {
     this.vols = this.srvVol.findAll();
+    this.avions = this.srvAvion.findAll();
     this.pilotes = this.srvPilote.findAll();
     this.parachutistes = this.srvParachutiste.findAll();
   }
