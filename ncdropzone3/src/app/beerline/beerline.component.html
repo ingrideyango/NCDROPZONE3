@@ -1,34 +1,44 @@
+<nav-gestion></nav-gestion>
+
 <body>
-    <h1>Liste des parachutistes</h1>
-    <hr>
-    <div>
-        
+
+    <div class="container-fluid">
+        <h1>Liste des parachutistes</h1>
+        <hr>
         <div>
-            <label>BeerLined?</label>
-            <input type="checkbox" [(ngModel)]="formParachutiste.isBeerLined">
+
+            <div>
+                <label>BeerLined ?</label>
+                <input type="checkbox" [(ngModel)]="formParachutiste.isBeerLined">
+            </div>
+            <div>
+                <button id="btn" class="btn" (click)="modifierParachutiste()">Sauvegarder la modification</button>
+            </div>
         </div>
-        <div>
-            <button id="btn" class="btn btn-warning" (click)="modifierParachutiste()">Sauvegarder la modification</button>
-        </div>
+
     </div>
-    
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>BeerLine</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let p of parachutistes | async">
-                <td>{{p.nom}}</td>
-                <td>{{p.prenom}}</td>
-                <td *ngIf="p.isBeerLined==true">Oui</td>
-                <td *ngIf="p.isBeerLined==false">Non</td>
-                <td><button class="btn btn-warning" (click)="editerParachutiste(p)">Editer</button></td>
-            </tr>
-        </tbody>
-    </table>
-    </body>
-    
+    <div class="container-fluid" id="table">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>BeerLine</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of parachutistes | async">
+                    <td>{{p.nom}}</td>
+                    <td>{{p.prenom}}</td>
+                    <td *ngIf="p.isBeerLined==true">Oui</td>
+                    <td *ngIf="p.isBeerLined==false">Non</td>
+                    <td><button class="btn" (click)="editerParachutiste(p)">Editer</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+</body>
