@@ -31,10 +31,12 @@ public class Vol {
 
     @OneToOne
     @JoinColumn(name = "VOL_AVION")
+    @JsonView(Views.Vol.class)
     private Avion avion;
 
     @OneToOne
     @JoinColumn(name = "VOL_PILOTE")
+    @JsonView(Views.Vol.class)
     private Pilote pilote;
     
     @OneToMany(mappedBy = "vol")
@@ -42,6 +44,7 @@ public class Vol {
     
     @OneToOne
     @JoinColumn(name = "VOL_RESPONSABLE")
+    @JsonView(Views.Vol.class)
     private Parachutiste responsable;
     
     public int getId() {
