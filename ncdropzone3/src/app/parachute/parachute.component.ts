@@ -12,6 +12,7 @@ export class ParachuteComponent implements OnInit {
 
   formParachute: any = { 
     nomHarnais: "", 
+    typeSecurite:"",
     nomVoilePrincipale: "",
     nomVoileSecours: "",
     tailleVoilePrincipale: 0,
@@ -32,6 +33,7 @@ export class ParachuteComponent implements OnInit {
     this.srvParachute.add(this.formParachute).subscribe(this.refresh);
     this.formParachute = { 
       nomHarnais: "", 
+      typeSecurite:"",
       nomVoilePrincipale: "",
       nomVoileSecours: "",
       tailleVoilePrincipale: 0,
@@ -50,6 +52,7 @@ export class ParachuteComponent implements OnInit {
     this.srvParachute.update(this.formParachute).subscribe(this.refresh);
     this.formParachute = { 
       nomHarnais: "", 
+      typeSecurite:"",
       nomVoilePrincipale: "",
       nomVoileSecours: "",
       tailleVoilePrincipale: 0,

@@ -14,11 +14,11 @@
         </tr>
     </thead>
 
-    <tbody>
-        <tr *ngFor = "let vol of vols | async">
-            
+    <tbody >
+        <tr *ngFor = "let vol of vols | async" >
+            <td>{{ avion.nom }}</td>
+            <td>{{ vol.id }}</td>
             <td>{{ vol.etatVol }}</td>
-
         </tr>
     </tbody>
 </table>

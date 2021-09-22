@@ -8,6 +8,13 @@
                 <input type="text" [(ngModel)]="formParachute.nomHarnais">
             </div>
             <div>
+                <label>Type de securite</label>
+                <select [(ngModel)]="formParachute.typeSecurite">
+                    <option>CYPRESS</option>
+                    <option>VIGIL</option>
+                </select>
+            </div>
+            <div>
                 <label>Nom de la voile principale</label>
                 <input type="text" [(ngModel)]="formParachute.nomVoilePrincipale">
             </div>
@@ -51,6 +58,7 @@
             <thead>
                 <tr>
                     <th>Nom du harnais</th>
+                    <th>Type de securite</th>
                     <th>Nom de la voile principale</th>
                     <th>Nom de la voile de secours</th>
                     <th>Taille de la voile principale</th>
@@ -64,6 +72,7 @@
             <tbody>
                 <tr *ngFor="let parachute of parachutes | async">
                     <td>{{ parachute.nomHarnais }}</td>
+                    <td>{{parachute.typeSecurite}}</td>
                     <td>{{ parachute.nomVoilePrincipale }}</td>
                     <td>{{ parachute.nomVoileSecours }}</td>
                     <td>{{ parachute.tailleVoilePrincipale }}</td>
