@@ -42,6 +42,7 @@ public class ParachutisteApiController {
 	@PostMapping
 	public boolean ajouter(@RequestBody Parachutiste parachutiste){
 		try{
+			parachutiste.setBeerLined(false);
 			this.daoParachutiste.save(parachutiste);
 			return true;
 		}catch (Exception e){
