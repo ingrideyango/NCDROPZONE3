@@ -29,6 +29,7 @@ public class Parachute {
     @JsonView(Views.Parachute.class)
     private String nomHarnais;
     @Column(name="PARACHUTE_TYPESECURITE")
+    @JsonView(Views.Parachute.class)
     private String typeSecurite;
 
     @Column(name = "PARACHUTE_NOMVOILEPRINCIPALE", length = 100, nullable = false)
