@@ -1,57 +1,68 @@
-<h3>Liste des avions</h3>
-
-<hr />
-
-<div>
-	<div>
-		<label>Nom : </label>
-		<input type="text" [(ngModel)]="formAvion.nom" />
-	</div>
-
-    <div>
-		<label>Capacité : </label>
-		<input type="text" [(ngModel)]="formAvion.capacite" />
-	</div>
-
-    <div>
-		<label>Disponibilité : </label>
-		<input type="checkbox" value = "true" [(ngModel)]="formAvion.estDisponible" />
-	</div>
-
-	<div>
-		<button (click)="ajouterAvion()" class="btn btn-success">Ajouter</button>
-		<button (click)="modifierAvion()" class="btn btn-warning">Modifier</button>
-	</div>
-</div>
-
-<hr />
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Capacité de l'avion</th>
-            <th>Disponibilité de l'avion</th>
-            <th></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <tr *ngFor="let avion of avions | async">
-            <td>{{ avion.nom }}</td>
-            <td>{{ avion.capacite }}</td>
-            <td>{{ avion.estDisponible }}</td>
-
-            <td></td>
-
-            <td>
-                <button (click)="editerAvion(avion)" class="btn btn-warning">Editer</button> 
-                <button (click)="supprimerAvion(avion)" class="btn btn-danger">Supprimer</button> 
-            </td>
-        </tr>
-    </tbody>
-
-</table>
+<nav-gestion></nav-gestion>
 
 
-<router-outlet></router-outlet>
+<body>
+    <div class="container-fluid">
+
+        <div id="form">
+            <label>Nom : </label>
+            <input type="text" [(ngModel)]="formAvion.nom" /><br>
+
+
+
+            <label>Capacité : </label>
+            <input type="text" [(ngModel)]="formAvion.capacite" /><br>
+
+
+
+
+        </div>
+
+        <div id="checkbox">
+            <label>Disponibilité : </label>
+            <input type="checkbox" value="true" [(ngModel)]="formAvion.estDisponible" />
+        </div>
+        
+
+
+
+        <div id="btn">
+            <button (click)="ajouterAvion()" class="btn mr-2">Ajouter</button>
+            <button (click)="modifierAvion()" class="btn">Modifier</button>
+        </div>
+    </div>
+
+    <hr />
+
+
+    <div class="container-fluid">
+        <h3>Liste des avions</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Capacité de l'avion</th>
+                    <th>Disponibilité de l'avion</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let avion of avions | async">
+                    <td>{{ avion.nom }}</td>
+                    <td>{{ avion.capacite }}</td>
+                    <td>{{ avion.estDisponible }}</td>
+
+                    <td></td>
+
+                    <td>
+                        <button (click)="editerAvion(avion)" class="btn  mr-2">Editer</button>
+                        <button (click)="supprimerAvion(avion)" class="btn">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</body>
