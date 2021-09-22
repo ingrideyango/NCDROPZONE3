@@ -60,6 +60,30 @@ public class Vol {
         this.etatVol = etatVol;
     }
     
+    public Avion getAvion() {
+        return avion;
+    }
+    public void setAvion(Avion avion) {
+        this.avion = avion;
+    }
+    public Pilote getPilote() {
+        return pilote;
+    }
+    public void setPilote(Pilote pilote) {
+        this.pilote = pilote;
+    }
+    public List<Saut> getSauts() {
+        return sauts;
+    }
+    public void setSauts(List<Saut> sauts) {
+        this.sauts = sauts;
+    }
+    public Parachutiste getResponsable() {
+        return responsable;
+    }
+    public void setResponsable(Parachutiste responsable) {
+        this.responsable = responsable;
+    }
     public Vol() {
     }
 }
