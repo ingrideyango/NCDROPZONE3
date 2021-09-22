@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModuleAvionnageService } from '../module-avionnage.service';
+import { ParachuteService } from '../parachute.service';
 import { ParachutisteService } from '../parachutiste.service';
+import { SautService } from '../saut.service';
 
 @Component({
   selector: 'app-module-avionnage',
@@ -11,22 +12,26 @@ export class ModuleAvionnageComponent implements OnInit {
 
   parachutistes: any = this.srvParachutiste.findAll();
   formParachutiste: any = {
-    nom: "",
-    prenom: "",
-    parachute:"",
-    hauteur: 0
+    saut: ""
   };
-  parachutiste: any = {};  
+  parachutiste: any = {};
+  parachutes: any = this.srvParachute.findAll();
+  sauts: any = this.srvSaut.findAll();
+  checkSaut : boolean = false;
+  hauteur : number = 0;  
 
-  constructor(private srvParachutiste: ParachutisteService, private srvModuleAvionnage: ModuleAvionnageService) { }
+  constructor(private srvParachutiste: ParachutisteService, private srvParachute: ParachuteService, private srvSaut: SautService) { }
 
   ngOnInit(): void {
   }
 
 
-  // afficherParachutiste(parachutiste: any){
-  //   this.parachutistes = this.srvModuleAvionnage.findAllByNom(parachutiste);
-  // }
- 
-
+  validerSaut(){
+    // this.parachutistes.forEach(parachutiste => {
+    //   if(this.checkSaut == true){
+    //     this.formParachutiste.saut = 1;
+    //     this.srvParachutiste.update(this.formParachutiste).subscribe();
+    //   }
+    // });
+   }
 }

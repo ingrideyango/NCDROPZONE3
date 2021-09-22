@@ -14,21 +14,33 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>Prochain Saut</th>
             <th>Nom</th>
             <th>Prenom</th>
             <th>Numero de licence</th>
             <th>Numéro du parachute</th>
+            <th>Hauteur du saut</th>
             <th>Saut en groupe</th>
 
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let p of parachutistes | async">
+            <td><div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkSaut" [(ngModel)]="checkSaut">
+              </div></td>
             <td>{{p.nom}}</td>
             <td>{{p.prenom}}</td>
             <td>{{p.numeroLicence}}</td>
-            <td></td>
-            <td>Saut en groupe</td>
+            <td><select class="form-select">
+                <option *ngFor="let para of parachutes | async">{{para.nomHarnais}}</option>
+              </select></td>
+            <td><select class="form-select">
+                <option *ngFor="let s of sauts | async" [(ngModel)]="hauteur">{{s.hauteur}}</option>
+              </select></td>
+            <td><div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkGroupe">
+              </div></td>
         </tr>    
         
         <tr>
