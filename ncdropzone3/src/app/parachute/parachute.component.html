@@ -1,75 +1,83 @@
-<p>parachute works!</p>
-<div>
-    <div>
+<nav-gestion></nav-gestion>
+
+<body>
+    <div class="container-fluid">
         <div>
-            <label>Nom du harnais</label>
-            <input type="text" [(ngModel)]="formParachute.nomHarnais">
+            <div>
+                <label>Nom du harnais</label>
+                <input type="text" [(ngModel)]="formParachute.nomHarnais">
+            </div>
+            <div>
+                <label>Nom de la voile principale</label>
+                <input type="text" [(ngModel)]="formParachute.nomVoilePrincipale">
+            </div>
+            <div>
+                <label>Nom de la voile de secours</label>
+                <input type="text" [(ngModel)]="formParachute.nomVoileSecours">
+            </div>
+            <div>
+                <label>Taille de la voile principale</label>
+                <input type="text" [(ngModel)]="formParachute.tailleVoilePrincipale">
+            </div>
+            <div>
+                <label>Taille de la voile de secours</label>
+                <input type="text" [(ngModel)]="formParachute.tailleVoileSecours">
+            </div>
+            <div>
+                <label>Date de pliage de la voile de secours</label>
+                <input type="date" [(ngModel)]="formParachute.datePliageVoileSecours">
+            </div>
+            <div>
+                <label>Parachute personnel</label>
+                <input type="checkbox" value="false" [(ngModel)]="formParachute.estPersonnel">
+                
+            </div>
+            <div>
+                <label>Parachute disponible</label>
+                <input type="checkbox" value="true" [(ngModel)]="formParachute.estDisponible">
+                
+            </div>
+            <div>
+                <button class="btn mr-2" (click)="ajouterParachute()">Ajouter</button>
+                <button class="btn" (click)="modifierParachute()">Modifier</button>
+            </div>
+            
         </div>
-        <div>
-            <label>Nom de la voile principale</label>
-            <input type="text" [(ngModel)]="formParachute.nomVoilePrincipale">
-        </div>
-        <div>
-            <label>Nom de la voile de secours</label>
-            <input type="text" [(ngModel)]="formParachute.nomVoileSecours">
-        </div>
-        <div>
-            <label>Taille de la voile principale</label>
-            <input type="text" [(ngModel)]="formParachute.tailleVoilePrincipale">
-        </div>
-        <div>
-            <label>Taille de la voile de secours</label>
-            <input type="text" [(ngModel)]="formParachute.tailleVoileSecours">
-        </div>
-        <div>
-            <label>Date de pliage de la voile de secours</label>
-            <input type="date" [(ngModel)]="formParachute.datePliageVoileSecours">
-        </div>
-        <div>
-            <input type="checkbox" value="false" [(ngModel)]="formParachute.estPersonnel">
-            <label>Parachute personnel</label>
-        </div>
-        <div>
-            <input type="checkbox" value="true" [(ngModel)]="formParachute.estDisponible">
-            <label>Parachute disponible</label>
-        </div>
-        <div>
-            <button (click)="ajouterParachute()">Ajouter</button>
-            <button (click)="modifierParachute()">Modifier</button>
-        </div>
-        
     </div>
-</div>
-<div class="container-fluid">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>nomHarnais</th>
-                <th>nomVoilePrincipale</th>
-                <th>nomVoileSecours</th>
-                <th>tailleVoilePrincipale</th>
-                <th>tailleVoileSecours</th>
-                <th>datePliageVoileSecours</th>
-                <th>estPersonnel</th>
-                <th>estDisponible</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let parachute of parachutes | async">
-                <td>{{ parachute.nomHarnais }}</td>
-                <td>{{ parachute.nomVoilePrincipale }}</td>
-                <td>{{ parachute.nomVoileSecours }}</td>
-                <td>{{ parachute.tailleVoilePrincipale }}</td>
-                <td>{{ parachute.tailleVoileSecours }}</td>
-                <td>{{ parachute.datePliageVoileSecours }}</td>
-                <td>{{ parachute.estPersonnel }}</td>
-                <td>{{ parachute.estDisponible }}</td>
-                <td>
-                    <button (click)="editerParachute(parachute)">Editer</button>
-                    <button (click)="supprimerParachute(parachute)">Supprimer</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="container-fluid">
+        <h3>Liste des parachutes</h3>
+
+        <table class="table table-striped text-center">
+            <thead>
+                <tr>
+                    <th>Nom du harnais</th>
+                    <th>Nom de la voile principale</th>
+                    <th>Nom de la voile de secours</th>
+                    <th>Taille de la voile principale</th>
+                    <th>Taille de la voile de secours</th>
+                    <th>Date de pliage de la voile de secours</th>
+                    <th>Parachute personnel</th>
+                    <th>Parachute disponible</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let parachute of parachutes | async">
+                    <td>{{ parachute.nomHarnais }}</td>
+                    <td>{{ parachute.nomVoilePrincipale }}</td>
+                    <td>{{ parachute.nomVoileSecours }}</td>
+                    <td>{{ parachute.tailleVoilePrincipale }}</td>
+                    <td>{{ parachute.tailleVoileSecours }}</td>
+                    <td>{{ parachute.datePliageVoileSecours }}</td>
+                    <td>{{ parachute.estPersonnel }}</td>
+                    <td>{{ parachute.estDisponible }}</td>
+                    <td>
+                        <button class="btn mb-2" (click)="editerParachute(parachute)">Editer</button>
+                        <button class="btn" (click)="supprimerParachute(parachute)">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>

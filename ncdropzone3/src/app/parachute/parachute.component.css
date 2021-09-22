@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding-left: 250px;
+    padding-top: 30px;
+}
+
+h3{
+    margin-top: 10px;
+}
+table{
+    width: fit-content;
+}
+
+button{
+    background-color: yellow;
+    border-color: black;
+    border-width: 3px;
+    width: 100px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: gray;
+    color: yellow;
+}
+
+label{
+    display: block;
+    width: 300px;
+ 
+    
+}
+
+div input[type="text"]{
+    width: 300px;
+    padding: 5px 10px;
+    border-radius: 4px;
+
+}
