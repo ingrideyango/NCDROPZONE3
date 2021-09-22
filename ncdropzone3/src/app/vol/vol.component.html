@@ -3,28 +3,28 @@
 <div>
     <div>
         <label>Nom de l'avion :</label><br />
-        <select>
-            <option *ngFor="let avion of avions | async" [(ngModel)]="formVol.avion">{{ avion.nom }}</option>
+        <select class="form-select">
+            <option *ngFor="let avion of avions | async" [(ngModel)]="formVol.avion" ngDefaultControl>{{ avion.nom }}</option>
         </select>
     </div>
 
     <div>
         <label>Nom du pilote :</label><br />
-        <select>
-            <option *ngFor="let pilote of pilotes | async" [(ngModel)]="formVol.pilote">{{ pilote.nom }}</option>
+        <select class="form-select">
+            <option *ngFor="let pilote of pilotes | async" [(ngModel)]="formVol.pilote" ngDefaultControl>{{ pilote.nom }}</option>
         </select>
     </div>
 
     <div>
         <label>Nom du parachutiste responsable :</label><br />
-        <select>
-            <option *ngFor="let parachutiste of parachutistes | async" [(ngModel)]="formVol.responsable">{{ parachutiste.nom }}</option>
+        <select class="form-select">
+            <option *ngFor="let parachutiste of parachutistes | async" [(ngModel)]="formVol.responsable" ngDefaultControl>{{ parachutiste.nom }}</option>
         </select>
     </div>
 
     <div>
         <label>Etat du vol :</label><br />
-        <select id="etats" onchange="if (document.getElementById('etats').value == 'En incidence') {
+        <select class="form-select" id="etats" onchange="if (document.getElementById('etats').value == 'En incidence') {
             document.getElementById('desc_incidence').style.display = 'inline';
         } else {
             document.getElementById('desc_incidence').style.display = 'none';
