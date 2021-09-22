@@ -52,9 +52,8 @@
                 <tr *ngFor="let avion of avions | async">
                     <td>{{ avion.nom }}</td>
                     <td>{{ avion.capacite }}</td>
-                    <td>{{ avion.estDisponible }}</td>
-
-                    <td></td>
+                    <td *ngIf="avion.estDisponible==true">Disponible</td>
+                    <td *ngIf="avion.estDisponible==false">Indisponible</td>
 
                     <td>
                         <button (click)="editerAvion(avion)" class="btn  mr-2">Editer</button>
