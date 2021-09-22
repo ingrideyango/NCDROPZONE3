@@ -8,7 +8,7 @@
             <input type="checkbox" [(ngModel)]="formParachutiste.isBeerLined">
         </div>
         <div>
-            <button class="btn btn-warning" (click)="modifierParachutiste()">Sauvegarder la modification</button>
+            <button id="btn" class="btn btn-warning" (click)="modifierParachutiste()">Sauvegarder la modification</button>
         </div>
     </div>
     
@@ -24,7 +24,8 @@
             <tr *ngFor="let p of parachutistes | async">
                 <td>{{p.nom}}</td>
                 <td>{{p.prenom}}</td>
-                <td>{{p.isBeerLined}}</td>
+                <td *ngIf="p.isBeerLined==true">Oui</td>
+                <td *ngIf="p.isBeerLined==false">Non</td>
                 <td><button class="btn btn-warning" (click)="editerParachutiste(p)">Editer</button></td>
             </tr>
         </tbody>
