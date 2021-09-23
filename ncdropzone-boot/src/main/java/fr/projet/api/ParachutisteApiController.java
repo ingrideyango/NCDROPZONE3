@@ -35,7 +35,8 @@ public class ParachutisteApiController {
 	@GetMapping("/by-nom/{nom}")
 	@JsonView(Views.Parachutiste.class)
 	public List<Parachutiste> findAllByNom(@PathVariable String nom){
-		return this.daoParachutiste.findAllByNomContaining(nom);
+
+		return this.daoParachutiste.findAllByNomContaining((new StringBuilder()).append("%").append(nom).append("%").toString());
 	}
 	
 	

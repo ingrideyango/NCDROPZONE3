@@ -13,8 +13,8 @@ export class ModuleAvionnageService {
 
   constructor(private http: HttpClient) { }
 
-  findAllByNom(parachutiste: any){
-    return this.http.get(`${this.apiUrl}/by-nom/${parachutiste.nom}`)
+  findAllByNom(nom: string){
+    return this.http.get(`${this.apiUrl}/by-nom/${nom}`)
   }
 
  
