@@ -1,12 +1,18 @@
-<table>
+<table class="table table-striped">
     <thead>
         <tr>
+        <th>Nom Harnais</th>
+        <th>Parachutiste</th>
         <th></th>
     </tr>
     </thead>
 <tbody>
-    <tr>
-        <td></td>
+    <tr *ngFor="let parachute of parachutes | async">
+        <td>{{parachute.nomHarnais}}</td>
+        <td><select [(ngModel)]="formAssociation.parachutiste.id">
+            <option [value]="parachutiste.id" *ngFor="let parachutiste of parachutistes | async">{{parachutiste.nom}}</option>
+        </select></td>
+        <td><button (click)="associer(parachute)">Associer</button></td>
     </tr>
 </tbody>
 </table>

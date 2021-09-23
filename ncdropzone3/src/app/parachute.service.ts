@@ -8,6 +8,8 @@ import { environment } from 'src/environments/environment';
 export class ParachuteService {
 
   private apiUrl: string = `${ environment.apiUrl }/parachute`
+  private apiUrlAssocie: string = `${ environment.apiUrl }/parachute`
+
 
   constructor(private http: HttpClient) { }
 
@@ -26,5 +28,8 @@ export class ParachuteService {
   delete(parachute: any) {
     return this.http.delete(`${ this.apiUrl }/${ parachute.id }`, parachute);
   }
-
+associate(parachute:any,parachutiste:any){
+  console.log(parachutiste)
+return this.http.put(`${ this.apiUrl }/associer/${ parachute.id }/${parachutiste.id}`, null)
+}
 }
