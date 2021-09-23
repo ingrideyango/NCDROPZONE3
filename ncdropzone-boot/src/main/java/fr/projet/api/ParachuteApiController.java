@@ -31,6 +31,12 @@ public class ParachuteApiController {
     public List<Parachute> findAll(){
         return this.daoParachute.findAll();
     }
+    
+    @GetMapping("/by-dispo/{dispo}")
+    @JsonView(Views.Parachute.class)
+    public List<Parachute> findAllByEstDisponible(boolean dispo){
+    	return this.daoParachute.findAllByEstDisponible(true);
+    }
 
     @PostMapping
     @JsonView(Views.Parachute.class)

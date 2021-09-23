@@ -13,7 +13,7 @@ import { SautService } from '../saut.service';
 export class ModuleAvionnageComponent implements OnInit {
 
   parachutistes: any = this.srvParachutiste.findAll();
-  parachutes: any = this.srvParachute.findAll();
+  parachutes: any = this.srvModuleAvionnage.findAllByEstDisponible(true);
   sauts: any = this.srvSaut.findAll();
   parachutistesRecherche: any = new Observable();
 
@@ -32,10 +32,10 @@ export class ModuleAvionnageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  afficherParachutisteNom(nom: any){
+  afficherParachutisteNom(){
 
-    nom = this.formAvionnage.nom;
-    this.parachutistesRecherche = this.srvModuleAvionnage.findAllByNom(nom);
+   
+    this.parachutistesRecherche = this.srvModuleAvionnage.findAllByNom(this.formAvionnage.nom);
 
   }
 

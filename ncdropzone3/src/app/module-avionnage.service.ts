@@ -9,6 +9,7 @@ export class ModuleAvionnageService {
 
   private apiUrl : string = `${environment.apiUrl}/parachutiste`;
   private apiUrlAvionnage : string = `${environment.apiUrl}/avionnage`;
+  private apiUrlDispo : string = `${environment.apiUrl}/parachute`;
 
   
 
@@ -25,6 +26,10 @@ export class ModuleAvionnageService {
   add(avionnage: any){
     return this.http.post(this.apiUrlAvionnage, avionnage);
 
+  }
+
+  findAllByEstDisponible(dispo: any){
+    return this.http.get(`${this.apiUrlDispo}/by-dispo/${dispo}`,dispo);
   }
 
  
