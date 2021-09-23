@@ -1,94 +1,105 @@
-<h1>Liste des vols</h1>
+<nav-gestion></nav-gestion>
 
-<div>
-    <div>
-        <label>Nom de l'avion :</label><br />
-        <select class="form-select" [(ngModel)]="formVol.avion">
-            <option *ngFor="let avion of avions | async" [ngValue]="avion">{{ avion.nom }}</option>
-        </select>
+<body>
+
+    <div class="container-fluid ">
+        <h1>Liste des vols</h1>
+
+        <div>
+            <div id="form">
+                <label>Nom de l'avion :</label>
+                <select class="form-select" [(ngModel)]="formVol.avion">
+                    <option *ngFor="let avion of avions | async" [ngValue]="avion">{{ avion.nom }}</option>
+                </select><br>
+
+                <label>Nom du pilote :</label>
+                <select class="form-select" id="pilotes" [(ngModel)]="formVol.pilote">
+                    <option *ngFor="let pilote of pilotes | async" [ngValue]="pilote">{{ pilote.nom }}</option>
+                </select><br>
+
+                <label>Nom du parachutiste responsable :</label>
+                <select class="form-select" [(ngModel)]="formVol.responsable">
+                    <option *ngFor="let parachutiste of parachutistes | async" [ngValue]="parachutiste">{{
+                        parachutiste.nom
+                        }}</option>
+                </select><br>
+
+                <label>Etat du vol :</label>
+                <select class="form-select" id="etats" onchange="if (document.getElementById('etats').value == 'En incidence') {
+                document.getElementById('desc_incidence').style.display = 'inline';
+            } else {
+                document.getElementById('desc_incidence').style.display = 'none';
+            };" [(ngModel)]="formVol.etatVol">
+                    <option id="1" value="En attente">En attente</option>
+                    <option id="2" value="En préparation">En préparation</option>
+                    <option id="3" value="En embarquement">En embarquement</option>
+                    <option id="4" value="En vol">En vol</option>
+                    <option id="5" value="Terminé">Terminé</option>
+                    <option id="6" value="En incidence">En incidence</option>
+                </select>
+            </div>
+
+            <div id="desc_incidence" style="display: none;">
+                <label>Description de l'incidence :</label><br />
+                <input type="text">
+            </div>
+
+            <div>
+                <button class="btn" (click)="ajouterVol()">Ajouter</button>
+                <button class="btn" (click)="modifierVol()">Modifier</button>
+            </div>
+        </div>
     </div>
 
-    <div>
-        <label>Nom du pilote :</label><br />
-        <select class="form-select" id="pilotes" [(ngModel)]="formVol.pilote">
-            <option *ngFor="let pilote of pilotes | async" [ngValue]="pilote">{{ pilote.nom }}</option>
-        </select>
+    <div class="container-fluid">
+        <hr />
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Numéro du vol</th>
+                    <th>Etat du vol</th>
+                    <th>Nom de l'avion</th>
+                    <th>Nom du pilote</th>
+                    <th>Nom du responsable</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vol of vols | async">
+                    <td>{{ vol.id }}</td>
+
+                    <td>{{ vol.etatVol }}</td>
+
+                    <td>
+                        <div *ngFor="let avion of avions | async">
+                            <div *ngIf="vol.avion.id == avion.id">
+                                {{ avion.nom }}
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div *ngFor="let pilote of pilotes | async">
+                            <div *ngIf="vol.pilote.id == pilote.id">
+                                {{ pilote.nom }}
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div *ngFor="let parachutiste of parachutistes | async">
+                            <div *ngIf="vol.responsable.id == parachutiste.id">
+                                {{ parachutiste.nom }}
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn" (click)="editerVol(vol)">EDITER</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-    <div>
-        <label>Nom du parachutiste responsable :</label><br />
-        <select class="form-select" [(ngModel)]="formVol.responsable">
-            <option *ngFor="let parachutiste of parachutistes | async" [ngValue]="parachutiste">{{ parachutiste.nom }}</option>
-        </select>
-    </div>
-
-    <div>
-        <label>Etat du vol :</label><br />
-        <select class="form-select" id="etats" onchange="if (document.getElementById('etats').value == 'En incidence') {
-            document.getElementById('desc_incidence').style.display = 'inline';
-        } else {
-            document.getElementById('desc_incidence').style.display = 'none';
-        };" [(ngModel)]="formVol.etatVol">
-            <option id="1" value="En attente">En attente</option>
-            <option id="2" value="En préparation">En préparation</option>
-            <option id="3" value="En embarquement">En embarquement</option>
-            <option id="4" value="En vol">En vol</option>
-            <option id="5" value="Terminé">Terminé</option>
-            <option id="6" value="En incidence">En incidence</option>
-        </select>
-    </div>
-
-    <div id="desc_incidence" style="display: none;">
-        <label>Description de l'incidence :</label><br />
-        <input type="text">
-    </div>
-
-    <div>
-        <button (click)="ajouterVol()">Ajouter</button>
-        <button (click)="modifierVol()">Modifier</button>
-    </div>
-</div>
-
-<hr />
-
-<table>
-    <thead>
-        <tr>
-            <th>Numéro du vol</th>
-            <th>Etat du vol</th>
-            <th>Nom de l'avion</th>
-            <th>Nom du pilote</th>
-            <th>Nom du responsable</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let vol of vols | async">
-            <td>{{ vol.id }}</td>
-
-            <td>{{ vol.etatVol }}</td>
-
-            <td><div *ngFor="let avion of avions | async">
-                <div *ngIf="vol.avion.id == avion.id">
-                    {{ avion.nom }}
-                </div>
-            </div></td>
-
-            <td><div *ngFor="let pilote of pilotes | async">
-                <div *ngIf="vol.pilote.id == pilote.id">
-                    {{ pilote.nom }}
-                </div>
-            </div></td>
-
-            <td><div *ngFor="let parachutiste of parachutistes | async">
-                <div *ngIf="vol.responsable.id == parachutiste.id">
-                    {{ parachutiste.nom }}
-                    </div>
-                </div>
-            </td>
-            <td>
-                <button (click)="editerVol(vol)">EDITER</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+</body>

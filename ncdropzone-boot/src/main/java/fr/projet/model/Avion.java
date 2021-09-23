@@ -1,11 +1,14 @@
 package fr.projet.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -43,8 +46,8 @@ public class Avion {
     @JoinColumn(name = "AVION_PILOTE")
     private Pilote pilote;
 
-    @OneToOne(mappedBy = "avion")
-    private Vol vol;
+    @OneToMany(mappedBy = "avion")
+    private List<Vol> vol;
 
     public Avion() {
     }
@@ -89,6 +92,23 @@ public class Avion {
         this.nbRotationMax = nbRotationMax;
     }
 
+    public Pilote getPilote() {
+        return pilote;
+    }
+
+    public void setPilote(Pilote pilote) {
+        this.pilote = pilote;
+    }
+
+    public List<Vol> getVol() {
+        return vol;
+    }
+
+    public void setVol(List<Vol> vol) {
+        this.vol = vol;
+    }
+
+    
 
     
 }

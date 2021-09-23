@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -29,12 +30,12 @@ public class Vol {
 	@JsonView(Views.Vol.class)
     private String etatVol;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "VOL_AVION")
     @JsonView(Views.Vol.class)
     private Avion avion;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "VOL_PILOTE")
     @JsonView(Views.Vol.class)
     private Pilote pilote;

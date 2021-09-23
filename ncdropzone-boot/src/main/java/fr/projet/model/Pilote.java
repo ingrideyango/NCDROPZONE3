@@ -1,10 +1,13 @@
 package fr.projet.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -33,8 +36,8 @@ public class Pilote {
     @OneToOne(mappedBy = "pilote")
     private Avion avion;
     
-    @OneToOne(mappedBy = "pilote")
-    private Vol vol;
+    @OneToMany(mappedBy = "pilote")
+    private List<Vol> vol;
     
     public Pilote(String nom, String prenom, String numeroLicence) {
         this.nom = nom;
@@ -85,12 +88,14 @@ public class Pilote {
         this.avion = avion;
     }
 
-    public Vol getVol() {
+    public List<Vol> getVol() {
         return vol;
     }
 
-    public void setVol(Vol vol) {
+    public void setVol(List<Vol> vol) {
         this.vol = vol;
     }
+
+    
     
 }
