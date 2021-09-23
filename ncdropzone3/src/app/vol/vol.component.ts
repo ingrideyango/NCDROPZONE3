@@ -3,7 +3,9 @@ import { Observable } from 'rxjs';
 import { AvionService } from '../avion.service';
 import { ParachutisteService } from '../parachutiste.service';
 import { PiloteService } from '../pilote.service';
+import { TandemService } from '../tandem.service';
 import { VolService } from '../vol.service';
+import { ModuleAvionnageService } from '../module-avionnage.service';
 
 @Component({
   selector: 'app-vol',
@@ -30,7 +32,12 @@ export class VolComponent implements OnInit {
   pilotes : any = [];
   parachutistes : any = [];
 
-  constructor(private srvVol: VolService, private srvPilote: PiloteService, private srvParachutiste: ParachutisteService, private srvAvion: AvionService) {
+  avionnages : any = [];
+  tandems : any = [];
+
+  constructor(private srvVol: VolService, private srvPilote: PiloteService,
+     private srvParachutiste: ParachutisteService, private srvAvion: AvionService,
+      private srvTandem: TandemService, private srvAvionnage: ModuleAvionnageService) {
     this.refresh();
   }
 
@@ -42,6 +49,8 @@ export class VolComponent implements OnInit {
     this.avions = this.srvAvion.findAll();
     this.pilotes = this.srvPilote.findAll();
     this.parachutistes = this.srvParachutiste.findAll();
+    this.tandems = this.srvTandem.findAll();
+    this.avionnages = this.srvAvionnage.findAllAvionnage();
   }
   formVolClean = () => this.formVol = {
     etatVol: "",
@@ -68,6 +77,22 @@ export class VolComponent implements OnInit {
   modifierVol() {
     this.srvVol.update(this.formVol).subscribe(this.refresh);
     this.formVolClean();
+  }
+
+  supprimerAvionnage(avionnage: any){
+    this.srvAvionnage.delete(avionnage).subscribe(this.refresh);
+  }
+
+  editerAvionnage(avionnage: any){
+    this.srvAvionnage.update(avionnage).subscribe(this.refresh);
+  }
+
+  supprimerTandem(tandem: any){
+    this.srvTandem.delete(tandem).subscribe(this.refresh);
+  }
+
+  editerTandem(tandem: any){
+    this.srvTandem.update(tandem).subscribe(this.refresh);
   }
 
 }

@@ -32,5 +32,12 @@ export class ModuleAvionnageService {
     return this.http.get(`${this.apiUrlDispo}/by-dispo/${dispo}`,dispo);
   }
 
- 
+  update(avionnage: any){
+    return this.http.put(this.apiUrlAvionnage, avionnage);
+  }
+
+  delete(avionnage: any) {
+    return this.http.delete(`${ this.apiUrlAvionnage }/${ avionnage.id }`);
+  }
+
 }

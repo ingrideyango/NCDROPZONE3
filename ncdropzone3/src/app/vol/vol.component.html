@@ -102,4 +102,74 @@
         </table>
     </div>
 
+    <div class="container-fluid">
+        <hr />
+        <h3>Liste des avionnages en attente</h3>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Parachute</th>
+                    <th>Saut</th>
+                    <th>Numero du vol</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let a of avionnages | async">
+                    <td>{{a.nom}}</td>
+                    <td>{{a.prenom}}</td>
+                    <td>{{a.parachute}}</td>
+                    <td>{{a.saut}} m</td>
+                    <td>
+                        <select class="form-select" [(ngModel)]="a.vol">
+                            <option *ngFor="let vol of vols | async" [ngValue]="vol">{{ vol.id }}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn mr-2" (click)="editerAvionnage(a)">Affecter</button>
+                        <button class="btn " (click)="supprimerAvionnage(a)">Supprimer</button>
+                    </td>
+                </tr>    
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container-fluid">
+        <hr />
+        <h3>Liste des tandems</h3>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Instructeur</th>
+                    <th>Videoman</th>
+                    <th>Numero du vol</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of tandems | async">
+                    <td>{{t.nom}}</td>
+                    <td>{{t.prenom}}</td>
+                    <td>{{t.nomInstructeur}}, {{t.prenomInstructeur}}</td>
+                    <td>{{t.nomVideoman}}, {{t.prenomVideoman}}</td>
+                    <td>
+                        <select class="form-select" [(ngModel)]="t.vol">
+                            <option *ngFor="let vol of vols | async" [ngValue]="vol">{{ vol.id }}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn mr-2" (click)="editerTandem(t)">Affecter</button>
+                        <button class="btn " (click)="supprimerTandem(t)">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </body>
