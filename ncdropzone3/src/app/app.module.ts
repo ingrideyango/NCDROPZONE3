@@ -18,6 +18,7 @@ import { EcranAffichageComponent } from './ecran-affichage/ecran-affichage.compo
 import { HomeComponent } from './home/home.component';
 import { BeerlineComponent } from './beerline/beerline.component';
 import { NavGestionComponent } from './nav-gestion/nav-gestion.component';
+import { TandemComponent } from './tandem/tandem.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NavGestionComponent } from './nav-gestion/nav-gestion.component';
     EcranAffichageComponent,
     HomeComponent,
     BeerlineComponent,
-    NavGestionComponent
+    NavGestionComponent,
+    TandemComponent
   ],
   imports: [
     BrowserModule,

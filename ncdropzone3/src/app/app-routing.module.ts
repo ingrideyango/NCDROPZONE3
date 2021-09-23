@@ -10,6 +10,7 @@ import { ParachuteComponent } from './parachute/parachute.component';
 import { ParachutisteComponent } from './parachutiste/parachutiste.component';
 import { PiloteComponent } from './pilote/pilote.component';
 import { SautComponent } from './saut/saut.component';
+import { TandemComponent } from './tandem/tandem.component';
 import { VolComponent } from './vol/vol.component';
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:'moduleAvionnage',component: ModuleAvionnageComponent},
   {path:'ecranAffichage',component: EcranAffichageComponent},
   {path:'beerline',component: BeerlineComponent},
+  {path:'tandem',component: TandemComponent}
 
 ];
 
