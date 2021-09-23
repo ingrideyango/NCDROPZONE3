@@ -52,14 +52,9 @@
 <div class="container-fluid" id="formulaire">
     <div id="form">
         <label>Nom</label>
-        <input type="text" [(ngModel)]="formParachutiste.nom"><br>
-
-        <!-- <label>Parachute</label>
-        <select [(ngModel)]="formParachutiste.parachute">
-            <option *ngFor="let p of parachutes | async">{{p.nomHarnais}}</option>
-        </select><br>         -->
+        <input type="text" [(ngModel)]="formAvionnage.nom"><br>
     </div>
-    <button class="btn btn-success" (click)="afficherParachutisteNom(formParachutiste.nom)">Rechercher</button>
+    <button class="btn btn-success" (click)="afficherParachutisteNom(formAvionnage.nom)">Rechercher</button>
     <div>
         
     </div>
@@ -70,12 +65,22 @@
       <tr>
           <th>Nom</th>
           <th>Prenom</th>
+          <th>Parachute</th>
+          <th>Saut</th>
+          <th></th>
       </tr>
   </thead>
   <tbody>
       <tr *ngFor="let p of parachutistesRecherche | async">
           <td>{{p.nom}}</td>
-          <td>{{p.prenom}}</td>          
+          <td>{{p.prenom}}</td>
+          <td><select [(ngModel)]="formAvionnage.parachute">
+                <option *ngFor="let p of parachutes | async">{{p.nomHarnais}}</option>
+            </select></td>
+          <td><select [(ngModel)]="formAvionnage.saut">
+                <option *ngFor="let s of sauts | async">{{s.hauteur}} m</option>
+            </select></td>
+          <td><button class="btn btn-primary" (click)="ajouterParachutisteAvionnage()">Selectionner</button></td>          
       </tr>    
       
       <tr>

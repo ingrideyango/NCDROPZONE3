@@ -8,13 +8,23 @@ import { environment } from 'src/environments/environment';
 export class ModuleAvionnageService {
 
   private apiUrl : string = `${environment.apiUrl}/parachutiste`;
+  private apiUrlAvionnage : string = `${environment.apiUrl}/avionnage`;
 
   
 
   constructor(private http: HttpClient) { }
 
-  findAllByNom(nom: string){
-    return this.http.get(`${this.apiUrl}/by-nom/${nom}`)
+  findAllByNom(nom: any){
+    return this.http.get(`${this.apiUrl}/by-nom/${nom}`, nom)
+  }
+
+  findAllAvionnage(){
+    return this.http.get(this.apiUrlAvionnage);
+  }
+
+  add(avionnage: any){
+    return this.http.post(this.apiUrlAvionnage, avionnage);
+
   }
 
  

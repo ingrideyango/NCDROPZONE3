@@ -17,8 +17,9 @@ export class ModuleAvionnageComponent implements OnInit {
   sauts: any = this.srvSaut.findAll();
   parachutistesRecherche: any = new Observable();
 
-  formParachutiste: any = {
+  formAvionnage: any = {
     nom: "",
+    prenom: "",
     parachute: "",
     saut: 0
   };
@@ -33,9 +34,13 @@ export class ModuleAvionnageComponent implements OnInit {
 
   afficherParachutisteNom(nom: any){
 
-    nom = this.formParachutiste.nom;
+    nom = this.formAvionnage.nom;
     this.parachutistesRecherche = this.srvModuleAvionnage.findAllByNom(nom);
 
+  }
+
+  ajouterParachutisteAvionnage(){
+    this.srvModuleAvionnage.add(this.formAvionnage).subscribe();
   }
 
 }

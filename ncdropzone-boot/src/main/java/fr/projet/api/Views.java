@@ -14,4 +14,6 @@ public interface Views {
     public static interface Saut extends Commons{}
 
     public static interface Vol extends Commons{}
+    
+    public static interface Avionnage extends Commons{}
 }
