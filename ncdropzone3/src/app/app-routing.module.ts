@@ -6,6 +6,7 @@ import { EcranAffichageComponent } from './ecran-affichage/ecran-affichage.compo
 import { HomeComponent } from './home/home.component';
 import { ModuleAvionnageComponent } from './module-avionnage/module-avionnage.component';
 import { ModuleGestionComponent } from './module-gestion/module-gestion.component';
+import { ParachuteAssocieComponent } from './parachute-associe/parachute-associe.component';
 import { ParachuteComponent } from './parachute/parachute.component';
 import { ParachutisteComponent } from './parachutiste/parachutiste.component';
 import { PiloteComponent } from './pilote/pilote.component';
@@ -25,7 +26,9 @@ const routes: Routes = [
   {path:'moduleAvionnage',component: ModuleAvionnageComponent},
   {path:'ecranAffichage',component: EcranAffichageComponent},
   {path:'beerline',component: BeerlineComponent},
-  {path:'tandem',component: TandemComponent}
+  {path:'tandem',component: TandemComponent},
+  {path:'parachuteAssocie',component: ParachuteAssocieComponent},
+
 
 ];
 

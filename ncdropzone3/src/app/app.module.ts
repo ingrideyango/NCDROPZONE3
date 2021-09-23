@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { BeerlineComponent } from './beerline/beerline.component';
 import { NavGestionComponent } from './nav-gestion/nav-gestion.component';
 import { TandemComponent } from './tandem/tandem.component';
+import { ParachuteAssocieComponent } from './parachute-associe/parachute-associe.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TandemComponent } from './tandem/tandem.component';
     HomeComponent,
     BeerlineComponent,
     NavGestionComponent,
-    TandemComponent
+    TandemComponent,
+    ParachuteAssocieComponent,
   ],
   imports: [
     BrowserModule,
