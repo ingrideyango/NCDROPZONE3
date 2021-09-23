@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -35,6 +37,20 @@ public class Avionnage {
 	@Column(name="AVIONNAGE_SAUT_HAUTEUR")
 	@JsonView(Views.Avionnage.class)
 	private int saut;
+	
+	@ManyToOne
+	@JoinColumn(name = "AVIONNAGE_VOL")
+	@JsonView(Views.Avionnage.class)
+	private Vol vol;
+	
+
+	public Vol getVol() {
+		return vol;
+	}
+
+	public void setVol(Vol vol) {
+		this.vol = vol;
+	}
 
 	public int getId() {
 		return id;

@@ -48,7 +48,25 @@ public class Vol {
     @JsonView(Views.Vol.class)
     private Parachutiste responsable;
     
-    public int getId() {
+    @OneToMany(mappedBy = "vol")
+    private List<Avionnage> avionnage;
+    
+    @OneToMany(mappedBy = "vol")
+    private List<Tandem> tandem;
+        
+	public List<Avionnage> getAvionnage() {
+		return avionnage;
+	}
+	public void setAvionnage(List<Avionnage> avionnage) {
+		this.avionnage = avionnage;
+	}
+	public List<Tandem> getTandem() {
+		return tandem;
+	}
+	public void setTandem(List<Tandem> tandem) {
+		this.tandem = tandem;
+	}
+	public int getId() {
         return id;
     }
     public void setId(int id) {

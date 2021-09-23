@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -44,6 +46,20 @@ public class Tandem {
 	@Column(name = "TANDEM_VIDEOMAN_PRENOM")
 	@JsonView(Views.Tandem.class)
     private String prenomVideoman;
+	
+	@ManyToOne
+	@JoinColumn(name = "TANDEM_VOL")
+	@JsonView(Views.Tandem.class)
+	private Vol vol;
+
+	
+	public Vol getVol() {
+		return vol;
+	}
+
+	public void setVol(Vol vol) {
+		this.vol = vol;
+	}
 
 	public int getId() {
 		return id;
