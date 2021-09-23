@@ -45,6 +45,9 @@ export class VolComponent implements OnInit {
   }
   formVolClean = () => this.formVol = {
     etatVol: "",
+    avion: {
+      nom: ""
+    },
     pilote: {
       nom: ""
     },

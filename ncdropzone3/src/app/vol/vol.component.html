@@ -3,22 +3,22 @@
 <div>
     <div>
         <label>Nom de l'avion :</label><br />
-        <select class="form-select">
-            <option *ngFor="let avion of avions | async" [(ngModel)]="formVol.avion" ngDefaultControl>{{ avion.nom }}</option>
+        <select class="form-select" [(ngModel)]="formVol.avion">
+            <option *ngFor="let avion of avions | async" [ngValue]="avion">{{ avion.nom }}</option>
         </select>
     </div>
 
     <div>
         <label>Nom du pilote :</label><br />
-        <select class="form-select">
-            <option *ngFor="let pilote of pilotes | async" [(ngModel)]="formVol.pilote" ngDefaultControl>{{ pilote.nom }}</option>
+        <select class="form-select" id="pilotes" [(ngModel)]="formVol.pilote">
+            <option *ngFor="let pilote of pilotes | async" [ngValue]="pilote">{{ pilote.nom }}</option>
         </select>
     </div>
 
     <div>
         <label>Nom du parachutiste responsable :</label><br />
-        <select class="form-select">
-            <option *ngFor="let parachutiste of parachutistes | async" [(ngModel)]="formVol.responsable" ngDefaultControl>{{ parachutiste.nom }}</option>
+        <select class="form-select" [(ngModel)]="formVol.responsable">
+            <option *ngFor="let parachutiste of parachutistes | async" [ngValue]="parachutiste">{{ parachutiste.nom }}</option>
         </select>
     </div>
 
