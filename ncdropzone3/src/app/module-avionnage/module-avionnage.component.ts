@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ModuleAvionnageService } from '../module-avionnage.service';
 import { ParachuteService } from '../parachute.service';
 import { ParachutisteService } from '../parachutiste.service';
@@ -14,7 +15,7 @@ export class ModuleAvionnageComponent implements OnInit {
   parachutistes: any = this.srvParachutiste.findAll();
   parachutes: any = this.srvParachute.findAll();
   sauts: any = this.srvSaut.findAll();
-  parachutistesRecherche: any = [];
+  parachutistesRecherche: any = new Observable();
 
   formParachutiste: any = {
     nom: "",
@@ -30,7 +31,7 @@ export class ModuleAvionnageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  afficherParachutisteNom(nom: string){
+  afficherParachutisteNom(nom: any){
 
     nom = this.formParachutiste.nom;
     this.parachutistesRecherche = this.srvModuleAvionnage.findAllByNom(nom);
