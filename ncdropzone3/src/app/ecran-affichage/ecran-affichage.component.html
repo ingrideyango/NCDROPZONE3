@@ -1,55 +1,93 @@
-<h3>Avionnages en cours</h3>
-
-<hr />
-
-<h6 style="text-align: center;">Liste des avions</h6>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
- 
-            <th>Numéro de vol</th>
-            <th>Etat du vol</th>
-            <th></th>
-        </tr>
-    </thead>
-
-    <tbody >
-        <tr *ngFor = "let vol of vols | async" >
-
-            <td>{{ vol.id }}</td>
-            <td>{{ vol.etatVol }}</td>
-        </tr>
-    </tbody>
-</table>
-
-<hr />
-
-<h6 style="text-align: center;">Liste des parachutistes</h6>
-
-<hr />
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nom du parachutiste</th>
-            <th>Prénom du parachutiste</th>
-            <th>Numéro de licence</th>
-            <th></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <tr *ngFor = "let parachutiste of parachutistes | async">
-            
-            <td>{{ parachutiste.nom }}</td>
-            <td>{{ parachutiste.prenom }}</td>
-            <td>{{ parachutiste.numeroLicence }}</td>
-
-        </tr>
-    </tbody>
-</table>
+<body>
+    <div id="full">
+        <div class="container-fluid text-center">
+            <h3>Avionnages en cours</h3>
+        </div>
 
 
 
+        <div class="container-fluid" id="global">
+            <div class="col-4" id="avions">
+                <hr />
 
+                <h6 style="text-align: center;">Liste des tandems</h6>
+
+
+                <table class="table table-dark text-center">
+                    <thead>
+                        <tr>
+                            <th>Nom du parachutiste</th>
+                            <th>Prénom du parachutiste</th>
+                            <th>Vol</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let tandem of tandems | async">
+
+                            <td>{{ tandem.nom }}</td>
+                            <td>{{ tandem.prenom }}</td>
+                            <td>{{ tandem.vol }}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-4" id="adhérents">
+                <hr />
+
+                <h6 style="text-align: center;">Liste des parachutistes</h6>
+
+
+                <table class="table table-dark text-center">
+                    <thead>
+                        <tr>
+                            <th>Nom du parachutiste</th>
+                            <th>Prénom du parachutiste</th>
+                            <th>Vol</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let parachutiste of parachutistes | async">
+
+                            <td>{{ parachutiste.nom }}</td>
+                            <td>{{ parachutiste.prenom }}</td>
+                            <td>{{ parachutiste.vol }}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+
+            <hr />
+
+            <h6 style="text-align: center;">Liste des avions</h6>
+
+            <table class="table table-dark text-center">
+                <thead>
+                    <tr>
+
+                        <th>Numéro de vol</th>
+                        <th>Etat du vol</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let vol of vols | async">
+
+                        <td>{{ vol.id }}</td>
+                        <td>{{ vol.etatVol }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+</body>

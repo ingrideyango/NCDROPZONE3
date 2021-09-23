@@ -1,0 +1,27 @@
+div[id="full"]{
+    position: fixed;
+    background-color: black;
+    color: yellow;
+    width: 100%;
+    height: 100%;
+    
+}
+
+div[id="global"]{
+    width: 100%;
+}
+
+div[id="avions"]{
+    float: left;
+    margin-left: 10%;
+    width: 50%;
+}
+div[id="adhérents"]{
+    
+    margin-left: 50%;
+    
+}
+
+table{
+    color: yellow;
+}
