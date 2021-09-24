@@ -32,6 +32,14 @@ export class ModuleAvionnageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  refresh = () => this.parachutistesRecherche = new Observable();
+  formAvionnageClean = () => this.formAvionnage = {
+    nom: "",
+    prenom: "",
+    parachute: "",
+    saut:0
+  };
+
   afficherParachutisteNom(){
 
    
@@ -40,7 +48,9 @@ export class ModuleAvionnageComponent implements OnInit {
   }
 
   ajouterParachutisteAvionnage(){
-    this.srvModuleAvionnage.add(this.formAvionnage).subscribe();
+    this.srvModuleAvionnage.add(this.formAvionnage).subscribe(this.refresh);
+    this.formAvionnageClean();
+
   }
 
 }
