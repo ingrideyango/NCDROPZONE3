@@ -64,7 +64,7 @@
                     <td>{{ parachute.nomVoileSecours }}</td>
                     <td>{{ parachute.tailleVoilePrincipale }}</td>
                     <td>{{ parachute.tailleVoileSecours }}</td>
-                    <td>{{ parachute.datePliageVoileSecours }}</td>
+                    <td>{{ parachute.datePliageVoileSecours | date: 'dd/MM/yyyy' }}</td>
                     <td *ngIf="parachute.estPersonnel==true">Personnel</td>
                     <td *ngIf="parachute.estPersonnel==false">NCDROPZONE</td>
                     <td *ngIf="parachute.estDisponible==true">Disponible</td>

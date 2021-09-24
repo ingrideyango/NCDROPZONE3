@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ParachutisteService } from '../parachutiste.service';
 
+
 @Component({
   selector: 'app-parachutiste',
   templateUrl: './parachutiste.component.html',
@@ -22,6 +23,7 @@ export class ParachutisteComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
   refresh = () => this.parachutistes = this.srvParachutiste.findAll();
   formParachutisteClean = () => this.formParachutiste = {
