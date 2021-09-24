@@ -74,13 +74,13 @@
       <tr>
           <td>{{formAvionnage.nom}}</td>
           <td><select [(ngModel)]="formAvionnage.prenom">
-            <option *ngFor="let p of parachutistesRecherche | async">{{p.prenom}}</option>
+            <option *ngFor="let p of parachutistesRecherche | async" [value]="p.prenom">{{p.prenom}}</option>
         </select></td>
           <td><select [(ngModel)]="formAvionnage.parachute">
-                <option *ngFor="let p of parachutes | async">{{p.nomHarnais}}</option>
+                <option *ngFor="let p of parachutes | async" [value]="p.nomHarnais">{{p.nomHarnais}}</option>
             </select></td>
           <td><select [(ngModel)]="formAvionnage.saut">
-                <option *ngFor="let s of sauts | async">{{s.hauteur}}</option>
+                <option *ngFor="let s of sauts | async" [value]="s.hauteur">{{s.hauteur}}</option>
             </select>m</td>
           <td><button class="btn btn-primary" (click)="ajouterParachutisteAvionnage()">Selectionner</button></td>          
       </tr>    
