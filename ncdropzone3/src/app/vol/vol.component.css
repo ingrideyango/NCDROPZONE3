@@ -1,3 +1,9 @@
+body{
+    background-image: url("/assets/img/FondPageParachutiste.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 body {
     margin: 0;
     padding-left: 250px;
@@ -33,4 +39,14 @@ div[id="form"] select{
 
 div[id="desc_incidence"] input{
     margin-bottom: 5px;
+}
+
+div[id="table-avion"] {
+    background-color: white;
+}
+div[id="table-avionnage"] {
+    background-color: white;
+}
+div[id="table-tandem"] {
+    background-color: white;
 }

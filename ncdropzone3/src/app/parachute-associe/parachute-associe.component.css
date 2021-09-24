@@ -1,0 +1,27 @@
+body{
+    background-image: url("/assets/img/FondPageParachutiste.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body {
+    margin: 0;
+    padding-left: 250px;
+    padding-top: 30px;
+}
+
+button{
+    background-color: yellow;
+    border-color: black;
+    border-width: 3px;
+    width: 120px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: gray;
+    color: yellow;
+}
+
+div[id="table"]{
+    background-color: white;
+}
