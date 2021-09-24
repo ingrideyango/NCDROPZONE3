@@ -1,3 +1,4 @@
+<h4>Associer</h4>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -16,3 +17,40 @@
     </tr>
 </tbody>
 </table>
+<!-- <hr>
+<h4>Liste des parachutes par sauteur</h4>
+<select [(ngModel)]="formAssociation.parachutiste.nom">
+    <option  *ngFor="let parachutiste of parachutistes | async">{{parachutiste.nom}}</option>
+</select>
+<hr>
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th>Nom du harnais</th>
+            <th>Type de securite</th>
+            <th>Nom de la voile principale</th>
+            <th>Nom de la voile de secours</th>
+            <th>Taille de la voile principale</th>
+            <th>Taille de la voile de secours</th>
+            <th>Date de pliage de la voile de secours</th>
+            <th>Propriétaire</th>
+            <th>Disponibilité</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let parachute of parachutes | async">
+            <td>{{ parachute.nomHarnais }}</td>
+            <td>{{parachute.typeSecurite}}</td>
+            <td>{{ parachute.nomVoilePrincipale }}</td>
+            <td>{{ parachute.nomVoileSecours }}</td>
+            <td>{{ parachute.tailleVoilePrincipale }}</td>
+            <td>{{ parachute.tailleVoileSecours }}</td>
+            <td>{{ parachute.datePliageVoileSecours }}</td>
+            <td *ngIf="parachute.estPersonnel==true">Personnel</td>
+            <td *ngIf="parachute.estPersonnel==false">NCDROPZONE</td>
+            <td *ngIf="parachute.estDisponible==true">Disponible</td>
+            <td *ngIf="parachute.estDisponible==false">Indisponible</td>
+        </tr>
+    </tbody>
+</table> -->

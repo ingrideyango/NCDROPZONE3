@@ -15,9 +15,12 @@ parachutiste:any={};
 parachutistes:any=this.srvParachutiste.findAll();
 formAssociation: any = {
   parachutiste: {
-    id: 0
+    id: 0,
+    nom:""
   },
+
 }
+formClean=()=> this.formAssociation={nom:""};
 
   constructor(private srvModuleAvionnage : ModuleAvionnageService,private srvParachutiste :ParachutisteService
     ,private srvParachute : ParachuteService) {}
@@ -26,7 +29,8 @@ formAssociation: any = {
 refresh =()=> this.parachutes=this.srvModuleAvionnage.findAllByEstDisponible(true);
 
 associer(parachute:any){
-this.srvParachute.associate(parachute, this.formAssociation.parachutiste).subscribe(this.refresh)
+this.srvParachute.associate(parachute, this.formAssociation.parachutiste).subscribe(this.refresh);
+this.formClean()
 }
 
 }
