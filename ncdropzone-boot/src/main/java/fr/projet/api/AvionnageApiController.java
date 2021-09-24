@@ -2,6 +2,7 @@ package fr.projet.api;
 
 import java.util.List;
 
+import org.aspectj.weaver.patterns.IVerificationRequired;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import fr.projet.dao.IAvionnageDaoJpaRepository;
+import fr.projet.dao.IVolDaoJpaRepository;
 import fr.projet.model.Avionnage;
 
 @RestController
@@ -25,6 +27,7 @@ public class AvionnageApiController {
 
 	@Autowired
 	private IAvionnageDaoJpaRepository daoAvionnage;
+	
 	
 	@GetMapping
 	@JsonView(Views.Avionnage.class)
