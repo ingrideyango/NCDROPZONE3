@@ -33,7 +33,7 @@ export class ModuleAvionnageService {
   }
 
   update(avionnage: any){
-    return this.http.put(this.apiUrlAvionnage, avionnage);
+    return this.http.put(`${ this.apiUrlAvionnage }/${ avionnage.id }`, avionnage);
   }
 
   delete(avionnage: any) {
