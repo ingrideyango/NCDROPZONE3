@@ -59,8 +59,8 @@
                 <tr *ngFor="let t of tandems | async">
                     <td>{{t.nom}}</td>
                     <td>{{t.prenom}}</td>
-                    <td>{{t.nomInstructeur}}, {{t.prenomInstructeur}}</td>
-                    <td>{{t.nomVideoman}}, {{t.prenomVideoman}}</td>
+                    <td>{{t.nomInstructeur }} {{t.prenomInstructeur}}</td>
+                    <td>{{t.nomVideoman }} {{t.prenomVideoman}}</td>
                     <td>
                         <button class="btn mr-2" (click)="editerTandem(t)">Editer</button>
                         <button class="btn " (click)="supprimerTandem(t)">Supprimer</button>
